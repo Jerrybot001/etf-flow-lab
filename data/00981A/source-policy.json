@@ -1,0 +1,23 @@
+{
+  "fundCode": "00981A",
+  "fundName": "主動統一台股增長",
+  "issuer": "統一投信",
+  "primarySource": {
+    "name": "統一投信官網每日持股揭露",
+    "reason": "統一投信是 00981A 發行方，應作為每日持股揭露的第一順位來源。",
+    "url": null,
+    "status": "need_fixed_official_disclosure_or_download_url"
+  },
+  "storagePolicy": {
+    "whyStoreInternally": "官網每日揭露通常只代表當日或最新資料，網站需要自行保存每日快照，才能回看歷史並計算持股變化。",
+    "storageFile": "data/00981A/holdings-history.json",
+    "appendRule": "同一資料日若已存在，不重複新增；若官方重新揭露且資料不同，保留修正紀錄後再覆蓋或新增 revision。",
+    "noFakeDataRule": "沒有抓到統一投信官方每日持股時，頁面只顯示待更新，不得用 MoneyDJ、Yahoo、WantGoo、舊截圖或 Demo 資料替代。"
+  },
+  "calculationPolicy": {
+    "dailyChange": "用今日官方快照減前一個已保存官方快照。",
+    "newHolding": "今日有、前一快照沒有。",
+    "removedHolding": "前一快照有、今日沒有。",
+    "weightChangePctPoint": "今日權重百分比 - 前一快照權重百分比。"
+  }
+}
