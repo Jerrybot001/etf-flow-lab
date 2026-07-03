@@ -5,23 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ETF Flow Lab｜今日總覽</title>
 <style>
-:root{--bg:#f7efe2;--paper:#fff9ee;--ink:#151915;--muted:#6d6a5e;--green:#153f31;--line:#e2d0ae;--red:#a9453b;--good:#19724a;--shadow:0 24px 70px rgba(38,35,26,.12)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,sans-serif}.top{height:8px;background:linear-gradient(90deg,var(--green),#e7c47b,#d88333)}.wrap{width:min(1120px,92vw);margin:0 auto 56px}.nav{width:min(1120px,92vw);margin:18px auto 0;background:rgba(255,249,238,.86);border:1px solid var(--line);box-shadow:0 16px 50px rgba(38,35,26,.08);border-radius:999px;padding:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;position:sticky;top:10px;z-index:10;backdrop-filter:blur(10px)}.nav a{display:inline-flex;align-items:center;gap:6px;padding:10px 14px;border-radius:999px;text-decoration:none;color:var(--green);font-size:14px;font-weight:950;border:1px solid transparent}.nav a.active,.nav a:hover{background:#fff8ec;border-color:var(--line)}.hero{width:min(1120px,92vw);margin:18px auto 28px;display:grid;grid-template-columns:1.08fr .92fr;gap:22px}.card,.cover,.side{border-radius:30px;box-shadow:var(--shadow)}.cover,.card{background:var(--paper);border:1px solid var(--line)}.cover{padding:42px}.side{background:var(--green);color:#fff;padding:32px}.kicker{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:#c0772f}.side .kicker{color:#e7c47b}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,7vw,78px);line-height:.92;letter-spacing:-.05em;margin:18px 0}h2{font-family:Georgia,"Times New Roman",serif;font-size:32px;margin:0 0 12px}h3{font-size:21px;margin:8px 0 10px}.lead{font-size:18px;line-height:1.8;color:var(--muted)}.white{color:rgba(255,255,255,.84);line-height:1.9}.grid{display:grid;gap:18px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.card{padding:24px}.pill,.warn,.ok{display:inline-flex;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900;margin:4px 6px 4px 0}.pill{background:#fff8ec;border:1px solid var(--line);color:var(--green)}.warn{background:#fff0ea;border:1px solid rgba(169,69,59,.25);color:var(--red)}.ok{background:#edf5ef;color:var(--good)}.stat{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:14px 0;gap:16px}.stat:first-child{border-top:0}.pos{color:var(--good)}.neg{color:var(--red)}.section{margin:34px 0 16px}.list{list-style:none;padding:0;margin:0}.list li{border-top:1px solid var(--line);padding:13px 0;color:var(--muted);line-height:1.8}.list li:first-child{border-top:0}.source{font-size:13px;color:var(--muted);line-height:1.8}.footer{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:13px;line-height:1.8}.btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff8ec;color:var(--green);text-decoration:none;font-weight:950}.btn:hover{filter:brightness(.98)}@media(max-width:880px){.hero,.g2,.g3{grid-template-columns:1fr}.cover{padding:30px}.stat{display:block}.stat b{display:block;margin:4px 0}.nav{border-radius:24px}.nav a{flex:1 1 auto;justify-content:center}}
+:root{--bg:#f7efe2;--paper:#fff9ee;--ink:#151915;--muted:#6d6a5e;--green:#153f31;--line:#e2d0ae;--red:#a9453b;--good:#19724a;--shadow:0 24px 70px rgba(38,35,26,.12)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,sans-serif}.top{height:8px;background:linear-gradient(90deg,var(--green),#e7c47b,#d88333)}.wrap{width:min(1120px,92vw);margin:0 auto 56px}.nav{width:fit-content;max-width:min(760px,92vw);margin:18px max(4vw,calc((100vw - 1120px)/2)) 0 auto;background:rgba(255,249,238,.88);border:1px solid var(--line);box-shadow:0 12px 36px rgba(38,35,26,.08);border-radius:999px;padding:6px;display:flex;gap:4px;flex-wrap:wrap;align-items:center;justify-content:flex-end;position:sticky;top:10px;z-index:10;backdrop-filter:blur(10px)}.nav a{display:inline-flex;align-items:center;padding:7px 11px;border-radius:999px;text-decoration:none;color:var(--green);font-size:12.5px;font-weight:950;border:1px solid transparent;white-space:nowrap}.nav a.active,.nav a:hover{background:#fff8ec;border-color:var(--line)}.hero{width:min(1120px,92vw);margin:18px auto 28px;display:grid;grid-template-columns:1.08fr .92fr;gap:22px}.card,.cover,.side{border-radius:30px;box-shadow:var(--shadow)}.cover,.card{background:var(--paper);border:1px solid var(--line)}.cover{padding:42px}.side{background:var(--green);color:#fff;padding:32px}.kicker{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:#c0772f}.side .kicker{color:#e7c47b}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,7vw,78px);line-height:.92;letter-spacing:-.05em;margin:18px 0}h2{font-family:Georgia,"Times New Roman",serif;font-size:32px;margin:0 0 12px}h3{font-size:21px;margin:8px 0 10px}.lead{font-size:18px;line-height:1.8;color:var(--muted)}.white{color:rgba(255,255,255,.84);line-height:1.9}.grid{display:grid;gap:18px}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}.card{padding:24px}.pill,.warn,.ok{display:inline-flex;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900;margin:4px 6px 4px 0}.pill{background:#fff8ec;border:1px solid var(--line);color:var(--green)}.warn{background:#fff0ea;border:1px solid rgba(169,69,59,.25);color:var(--red)}.ok{background:#edf5ef;color:var(--good)}.stat{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:14px 0;gap:16px}.stat:first-child{border-top:0}.pos{color:var(--good)}.neg{color:var(--red)}.section{margin:34px 0 16px}.list{list-style:none;padding:0;margin:0}.list li{border-top:1px solid var(--line);padding:13px 0;color:var(--muted);line-height:1.8}.list li:first-child{border-top:0}.source{font-size:13px;color:var(--muted);line-height:1.8}.footer{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:13px;line-height:1.8}.btn{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff8ec;color:var(--green);text-decoration:none;font-weight:950}.btn:hover{filter:brightness(.98)}@media(max-width:880px){.hero,.g2,.g3{grid-template-columns:1fr}.cover{padding:30px}.stat{display:block}.stat b{display:block;margin:4px 0}.nav{width:min(92vw,760px);margin:14px auto 0;border-radius:24px;justify-content:center}.nav a{flex:1 1 auto;justify-content:center}}
 </style>
 </head>
 <body>
 <div class="top"></div>
-<nav class="nav" aria-label="ETF Flow Lab 分類導覽">
-<a class="active" href="#today">今日總覽</a>
+<nav class="nav" aria-label="ETF Flow Lab 分頁導覽">
+<a class="active" href="./">今日總覽</a>
 <a href="pages/00981A.html">00981A 歷史明細</a>
-<a href="#market-flow">法人 / 期貨</a>
-<a href="#etf-engine">ETF 引擎</a>
-<a href="#sources">資料來源</a>
+<a href="pages/market-flow.html">法人 / 期貨</a>
+<a href="pages/etf-engine.html">ETF 引擎</a>
+<a href="pages/sources.html">資料來源</a>
 </nav>
-<header class="hero" id="today">
+<header class="hero">
 <section class="cover">
 <div class="kicker">ETF Flow Lab｜14:00 Taiwan Close Stage</div>
 <h1>今日<br>總覽</h1>
-<p class="lead">資料日期：2026-07-03｜台灣更新時間：2026-07-03 15:02｜階段：14:00 台股收盤檢查版。首頁固定只放當天最重要資訊：市場方向、法人期貨、00981A 狀態；詳細歷史明細放分頁。</p>
+<p class="lead">資料日期：2026-07-03｜台灣更新時間：2026-07-03 15:02｜首頁只放當天最重要資訊。上方是分頁導覽；詳細歷史、法人期貨、ETF 引擎、資料來源都放到獨立頁。</p>
 <span class="ok">14:00 收盤檢查</span>
 <span class="warn">法人 / 期貨：16:00 後待更新</span>
 <span class="warn">00981A 官方每日持股：待更新</span>
@@ -29,20 +29,14 @@
 <aside class="side">
 <div class="kicker">Stage Rule</div>
 <h2>先收盤方向，後法人期貨</h2>
-<p class="white">本階段重點是台股收盤方向與資料狀態。三大法人現貨與外資期貨未平倉淨額需在 16:00 後同頁合併更新；00981A 只接受官方每日持股，未取得就標示待更新。</p>
+<p class="white">本階段重點是台股收盤方向與資料狀態。三大法人現貨與外資期貨未平倉淨額放在獨立分頁，16:00 後再合併更新。</p>
 </aside>
 </header>
 <main class="wrap">
 <section class="grid g3">
 <article class="card"><div class="kicker">Market</div><h3>市場方向</h3><p class="lead">台股 2026-07-03 收盤偏弱整理；可靠行情來源顯示加權指數約 <b class="neg">46,502</b>，較前一交易日 <b class="neg">46,744.16</b> 回落，短線由前日反彈轉為震盪防守。</p></article>
-<article class="card" id="market-flow"><div class="kicker">Institutional</div><h3>法人 / 期貨</h3><p class="lead">三大法人現貨與外資臺股期貨未平倉淨額需一起解讀；本階段尚未到 16:00 官方完整揭露時段，今日法人 / 期貨維持 <b class="neg">待更新</b>。前一可用期貨資料：外資淨空單 <b class="neg">-84,487 口</b>。</p></article>
-<article class="card"><div class="kicker">00981A</div><h3>ETF 狀態</h3><p class="lead">00981A 已確認為主動式 ETF；但 00981A 今日官方每日持股未取得可固定引用端點，持股明細維持 <b class="neg">待更新</b>，不使用第三方持股或舊示範資料。</p><a class="btn" href="pages/00981A.html">看 00981A 歷史明細 →</a></article>
-</section>
-<section class="section"><h2>分類入口</h2></section>
-<section class="grid g3" id="etf-engine">
-<article class="card"><div class="kicker">01 ETF Detail</div><h3>00981A 歷史明細</h3><p class="lead">從 2026/7/1 起只保存官方每日快照狀態；沒有官方快照就保存待更新，之後才計算新增、移出與權重變化。</p><a class="btn" href="pages/00981A.html">進入詳細頁 →</a></article>
-<article class="card"><div class="kicker">02 Market Flow</div><h3>三大法人 / 外資期貨</h3><p class="lead">今日現貨法人與外資期貨需 16:00 後同頁更新；現在不拆開解讀、不硬塞舊值。</p><span class="warn">16:00 待更新</span></article>
-<article class="card"><div class="kicker">03 Global Index</div><h3>國際指數</h3><p class="lead">05:00 已更新隔夜美股脈絡；14:00 本階段不新增未確認國際指數。若無可靠來源，以前一交易日標籤處理。</p><span class="pill">前一交易日脈絡</span></article>
+<article class="card"><div class="kicker">Institutional</div><h3>法人 / 期貨</h3><p class="lead">今日法人 / 期貨維持 <b class="neg">待更新</b>。前一可用期貨資料：外資淨空單 <b class="neg">-84,487 口</b>。</p><a class="btn" href="pages/market-flow.html">進入法人 / 期貨 →</a></article>
+<article class="card"><div class="kicker">00981A</div><h3>ETF 狀態</h3><p class="lead">00981A 今日官方每日持股未取得可固定引用端點，持股明細維持 <b class="neg">待更新</b>，不使用第三方持股或舊示範資料。</p><a class="btn" href="pages/00981A.html">看 00981A 歷史明細 →</a></article>
 </section>
 <section class="section"><h2>今日資料狀態</h2></section>
 <section class="grid g2">
@@ -51,15 +45,15 @@
 <div class="stat"><b>資料日</b><b>2026-07-03</b></div>
 <div class="stat"><b>加權指數</b><b class="neg">約 46,502</b></div>
 <div class="stat"><b>前一交易日</b><b>46,744.16</b></div>
-<div class="stat"><b>來源狀態</b><b>可靠行情來源；TWSE 官方表格待 16:00 / 晚間再核</b></div>
+<div class="stat"><b>來源狀態</b><b>可靠行情來源；TWSE 官方表格待後續核對</b></div>
 </article>
 <article class="card">
-<h3>待更新清單</h3>
+<h3>分頁入口</h3>
 <ul class="list">
-<li>TWSE 三大法人現貨：待 16:00 後官方資料。</li>
-<li>TAIFEX 外資臺股期貨未平倉淨額：待 16:00 後官方資料。</li>
-<li>00981A 官方每日持股：待統一投信可驗證每日持股來源。</li>
-<li>國際指數：本階段不新增未確認資料。</li>
+<li><a class="btn" href="pages/00981A.html">00981A 歷史明細 →</a></li>
+<li><a class="btn" href="pages/market-flow.html">法人 / 期貨 →</a></li>
+<li><a class="btn" href="pages/etf-engine.html">ETF 引擎 →</a></li>
+<li><a class="btn" href="pages/sources.html">資料來源 →</a></li>
 </ul>
 </article>
 </section>
@@ -67,20 +61,11 @@
 <section class="card source">
 <ul class="list">
 <li>14:00 後先看台股是否只是前日大漲後回測，還是跌破短線支撐。</li>
-<li>16:00 重點看外資現貨與期貨是否同向偏空；若現貨賣超且期貨淨空增加，短線壓力升高。</li>
-<li>00981A 若官方每日持股仍未揭露，日報只能保留 ETF 淨值 / 商品狀態，不做持股異動判斷。</li>
+<li>16:00 重點看外資現貨與期貨是否同向偏空；詳細放「法人 / 期貨」分頁。</li>
+<li>00981A 若官方每日持股仍未揭露，日報只能保留 ETF 商品狀態，不做持股異動判斷。</li>
 </ul>
 </section>
-<section class="section" id="sources"><h2>來源連結</h2></section>
-<section class="card source">
-<ul class="list">
-<li>台股收盤方向：MacroMicro 台灣加權指數可靠行情來源；TWSE 官方收盤表格待後續核對。</li>
-<li>00981A 商品狀態：TWSE e添富 ETF 商品頁；持股仍以統一投信官方每日持股為唯一可用來源。</li>
-<li>法人 / 期貨：TWSE 三大法人與 TAIFEX 外資期貨未平倉資料，16:00 後一起更新。</li>
-<li>00981A 後台歷史快照：data/00981A/holdings-history.json。</li>
-</ul>
-</section>
-<footer class="footer">固定網址：https://jerrybot001.github.io/etf-flow-lab/｜首頁上方固定分門別類；詳細資料放分頁。</footer>
+<footer class="footer">固定網址：https://jerrybot001.github.io/etf-flow-lab/｜首頁只放今日總覽；詳細資料全部分頁。</footer>
 </main>
 </body>
 </html>
