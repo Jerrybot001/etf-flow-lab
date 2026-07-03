@@ -5,10 +5,12 @@
   "primarySource": "統一投信官網每日持股揭露",
   "dataRule": "每天只從統一投信官網取得當日每日持股；取得後將當日原始明細存成後台歷史快照，再用歷史快照計算日變化。不得用非官方網站、舊截圖或 Demo 資料假裝今日資料。",
   "sourceStatus": "awaiting_official_endpoint",
+  "historyStartDate": "2026-07-01",
   "lastSnapshotDate": null,
   "lastUpdatedAt": "2026-07-03T00:00:00+08:00",
   "schema": {
     "date": "YYYY-MM-DD",
+    "status": "pending_official_snapshot | official_snapshot_saved | source_error",
     "sourceName": "統一投信官網",
     "sourceUrl": "官方每日持股揭露網址或下載檔網址",
     "fetchedAt": "ISO-8601 timestamp",
@@ -23,5 +25,33 @@
       }
     ]
   },
-  "snapshots": []
+  "snapshots": [
+    {
+      "date": "2026-07-01",
+      "status": "pending_official_snapshot",
+      "sourceName": "統一投信官網",
+      "sourceUrl": null,
+      "fetchedAt": null,
+      "note": "等待接入統一投信 00981A 官方每日持股固定端點；未放入非官方或 Demo 持股。",
+      "holdings": []
+    },
+    {
+      "date": "2026-07-02",
+      "status": "pending_official_snapshot",
+      "sourceName": "統一投信官網",
+      "sourceUrl": null,
+      "fetchedAt": null,
+      "note": "等待接入統一投信 00981A 官方每日持股固定端點；未放入非官方或 Demo 持股。",
+      "holdings": []
+    },
+    {
+      "date": "2026-07-03",
+      "status": "pending_official_snapshot",
+      "sourceName": "統一投信官網",
+      "sourceUrl": null,
+      "fetchedAt": null,
+      "note": "等待接入統一投信 00981A 官方每日持股固定端點；未放入非官方或 Demo 持股。",
+      "holdings": []
+    }
+  ]
 }
