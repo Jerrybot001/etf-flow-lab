@@ -1,0 +1,34 @@
+{
+  "project": "ETF Flow Lab",
+  "principle": "學 ETF Cross 的資料工程精神，不抄襲版面、文字或互動流程。所有 ETF 持股資料以各投信官網公開揭露為第一順位來源，本站自行保存每日快照後再做分析。",
+  "modules": [
+    {
+      "id": "holding-change-history",
+      "name": "00981A 異動歷史",
+      "purpose": "追蹤 00981A 每日持股新增、移出、權重增加、權重減少。",
+      "requiredData": ["每日官方持股快照", "前一個已保存官方快照"],
+      "sourcePriority": ["統一投信官網每日持股揭露"],
+      "status": "backend_schema_ready_waiting_official_endpoint"
+    },
+    {
+      "id": "overlap-holdings",
+      "name": "ETF 重疊持股 / 交集",
+      "purpose": "比較多檔 ETF 是否共同持有同一檔股票，找出市場共識股與單一 ETF 獨有持股。",
+      "requiredData": ["多檔 ETF 每日官方持股快照", "股票代號與名稱標準化表"],
+      "sourcePriority": ["各 ETF 發行投信官網每日公開揭露"],
+      "status": "planned_after_00981A_pipeline"
+    },
+    {
+      "id": "sector-rotation",
+      "name": "產業權重輪動",
+      "purpose": "把每日持股對應到產業分類，觀察 ETF 對半導體、AI、金融、航運等產業的權重變化。",
+      "requiredData": ["每日官方持股快照", "個股產業分類表", "前一個已保存官方快照"],
+      "sourcePriority": ["投信官網持股", "本站自建產業分類表"],
+      "status": "planned_after_industry_mapping"
+    }
+  ],
+  "noCopyRule": {
+    "canReference": ["資料來源揭露方式", "每日快照保存流程", "交集/異動/產業輪動這類分析概念"],
+    "mustNotCopy": ["ETF Cross 版面", "ETF Cross 文案", "ETF Cross 互動流程", "ETF Cross 資料庫內容"]
+  }
+}
