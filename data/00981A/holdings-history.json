@@ -6,13 +6,13 @@
   "historyStartDate": "2026-07-01",
   "sourceStatus": "awaiting_official_endpoint",
   "lastSnapshotDate": null,
-  "lastUpdatedAt": "2026-07-03T00:00:00+08:00",
+  "lastUpdatedAt": "2026-07-04T00:10:21.334325+08:00",
   "dataRule": "每天只從統一投信官網取得當日每日持股；取得後將當日原始明細存成後台歷史快照，再用歷史快照計算日變化。不得用非官方網站、舊截圖或 Demo 資料假裝今日資料。",
   "summary": {
     "range": "2026-07-01 ~ 2026-07-03",
     "officialSnapshotsSaved": 0,
     "pendingSnapshots": 3,
-    "latestStatusText": "等待接入統一投信 00981A 官方每日持股固定端點",
+    "latestStatusText": "尚未設定統一投信 00981A 官方每日持股固定端點",
     "displayMode": "先顯示每日快照狀態；官方持股接入後才顯示持股與異動。"
   },
   "snapshots": [
