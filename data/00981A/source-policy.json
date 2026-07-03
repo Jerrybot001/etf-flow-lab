@@ -6,7 +6,15 @@
     "name": "統一投信官網每日持股揭露",
     "reason": "統一投信是 00981A 發行方，應作為每日持股揭露的第一順位來源。",
     "url": null,
-    "status": "need_fixed_official_disclosure_or_download_url"
+    "status": "need_fixed_official_disclosure_or_download_url",
+    "howToActivate": "找到統一投信 00981A 每日持股的官方固定揭露頁、CSV 或 Excel 下載網址後，填入 primarySource.url，GitHub Actions 會自動抓取並寫入 holdings-history.json。"
+  },
+  "pipeline": {
+    "script": "scripts/fetch_00981A_official.py",
+    "workflow": ".github/workflows/fetch-00981A.yml",
+    "schedule": "台灣時間週一至週五 18:30 自動執行，也可手動 workflow_dispatch。",
+    "acceptedFormats": ["html table", "csv", "xlsx", "zip containing csv/xlsx"],
+    "currentStatus": "資料管線已建立；等待官方固定端點。"
   },
   "storagePolicy": {
     "whyStoreInternally": "官網每日揭露通常只代表當日或最新資料，網站需要自行保存每日快照，才能回看歷史並計算持股變化。",
