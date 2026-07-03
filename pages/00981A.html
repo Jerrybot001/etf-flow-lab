@@ -15,10 +15,10 @@
 <section class="hero">
 <div class="kicker">ETF Flow Lab｜00981A Detail</div>
 <h1>00981A<br>歷史持股明細</h1>
-<p class="lead">這一頁只放 00981A 詳細資料。範圍先從 <b>2026/7/1 到今天</b>。頁面已串接本站後台資料檔；統一投信官方持股固定端點接上後，這裡會自動顯示每日持股、異動歷史與產業權重。</p>
+<p class="lead">這一頁只放 00981A 詳細資料。範圍先從 <b>2026/7/1 到今天</b>。00981A 只接受統一投信官方每日持股；未取得官方快照前，一律標示待更新，不使用第三方或舊 Demo 持股。</p>
 <span class="pill">歷史起點：2026/7/1</span>
-<span class="info">已串接後台 JSON</span>
-<span class="warn">官方端點待接入</span>
+<span class="info">已保留後台 JSON 架構</span>
+<span class="warn">官方每日持股：待更新</span>
 <div class="tabs"><span class="tab">每日快照</span><span class="tab">持股明細</span><span class="tab">異動歷史</span><span class="tab">產業輪動</span></div>
 </section>
 <section class="grid g3">
@@ -29,38 +29,39 @@
 <section class="section"><h2>資料串接狀態</h2></section>
 <section class="grid g2">
 <article class="card">
-<div class="stat"><b>資料範圍</b><b id="range">2026-07-01 ~ 2026-07-03</b></div>
-<div class="stat"><b>已存官方快照</b><b id="official-count">0</b></div>
-<div class="stat"><b>待官方快照</b><b id="pending-count" class="neg">3</b></div>
-<div class="stat"><b>目前狀態</b><b id="latest-status">等待接入統一投信官方每日持股端點</b></div>
+<div class="stat"><b>資料範圍</b><b>2026-07-01 ~ 2026-07-04</b></div>
+<div class="stat"><b>已存官方快照</b><b>0</b></div>
+<div class="stat"><b>待官方快照</b><b class="neg">4</b></div>
+<div class="stat"><b>目前狀態</b><b>等待接入統一投信官方每日持股端點</b></div>
 </article>
 <article class="card">
 <h3>為什麼目前沒有持股數字</h3>
-<p class="lead">我已經把頁面和後台資料串好，但還沒抓到統一投信 00981A 的固定揭露 / 下載端點。未取得官方快照前，不放 ETF Cross、MoneyDJ、Yahoo、WantGoo 或 Demo 數字，避免變成假資料。</p>
+<p class="lead">尚未取得統一投信 00981A 可驗證的每日持股固定揭露 / 下載端點。未取得官方快照前，不放 ETF Cross、MoneyDJ、Yahoo、WantGoo 或 Demo 數字，避免變成假資料。</p>
 </article>
 </section>
 <section class="section"><h2>7/1 起每日快照狀態</h2></section>
 <section class="card table-wrap">
-<table class="table" id="snapshot-table">
+<table class="table">
 <thead><tr><th>日期</th><th>狀態</th><th>來源</th><th>持股筆數</th><th>備註</th></tr></thead>
 <tbody>
 <tr><td>2026-07-01</td><td>待官方快照</td><td>統一投信官網</td><td>0</td><td>待接官方快照；未使用非官方或 Demo 持股。</td></tr>
 <tr><td>2026-07-02</td><td>待官方快照</td><td>統一投信官網</td><td>0</td><td>待接官方快照；未使用非官方或 Demo 持股。</td></tr>
 <tr><td>2026-07-03</td><td>待官方快照</td><td>統一投信官網</td><td>0</td><td>待接官方快照；未使用非官方或 Demo 持股。</td></tr>
+<tr><td>2026-07-04</td><td>待更新</td><td>統一投信官網</td><td>0</td><td>週六盤前檢查；未取得官方每日持股，不使用替代資料。</td></tr>
 </tbody>
 </table>
-<p class="small">上表先內建 7/1～今天的狀態列；若後台 JSON 成功讀取，會以 JSON 內容覆蓋更新。</p>
+<p class="small">若後台 JSON 成功接入官方快照，後續會改由官方快照覆蓋更新。</p>
 </section>
 <section class="section"><h2>持股明細</h2></section>
 <section class="card table-wrap">
-<table class="table" id="holding-table">
+<table class="table">
 <thead><tr><th>日期</th><th>排名</th><th>股票代號</th><th>股票名稱</th><th>權重%</th><th>張數</th><th>市值</th></tr></thead>
 <tbody><tr><td colspan="7"><div class="empty">等待第一筆統一投信官方快照。取得後，這裡會顯示 00981A 每日持股明細。</div></td></tr></tbody>
 </table>
 </section>
 <section class="section"><h2>異動歷史</h2></section>
 <section class="card table-wrap">
-<table class="table" id="change-table">
+<table class="table">
 <thead><tr><th>日期</th><th>股票代號</th><th>股票名稱</th><th>狀態</th><th>權重變化</th><th>張數變化</th></tr></thead>
 <tbody><tr><td colspan="6"><div class="empty">等待至少兩個官方快照後計算。邏輯：今日官方快照 - 前一個已保存官方快照。</div></td></tr></tbody>
 </table>
@@ -71,43 +72,5 @@
 <article class="card"><h3>輪動判斷</h3><p class="lead">用今日產業權重減前一快照產業權重，判斷 00981A 加碼或減碼哪些族群。</p></article>
 </section>
 </main>
-<script id="fallback-data" type="application/json">{"summary":{"range":"2026-07-01 ~ 2026-07-03","officialSnapshotsSaved":0,"pendingSnapshots":3,"latestStatusText":"等待接入統一投信官方每日持股端點"},"snapshots":[{"date":"2026-07-01","status":"pending_official_snapshot","sourceName":"統一投信官網","note":"待接官方快照；未使用非官方或 Demo 持股。","holdings":[]},{"date":"2026-07-02","status":"pending_official_snapshot","sourceName":"統一投信官網","note":"待接官方快照；未使用非官方或 Demo 持股。","holdings":[]},{"date":"2026-07-03","status":"pending_official_snapshot","sourceName":"統一投信官網","note":"待接官方快照；未使用非官方或 Demo 持股。","holdings":[]}],"changes":[],"sectorWeights":[]}</script>
-<script>
-function statusText(status){
-  if(status==='official_snapshot_saved') return '已存官方快照';
-  if(status==='source_error') return '來源異常';
-  return '待官方快照';
-}
-function fmt(v){return v===null||v===undefined||v===''?'—':v;}
-function render(data){
-  const summary=data.summary||{};
-  document.getElementById('range').textContent=summary.range||'2026-07-01 ~ 2026-07-03';
-  document.getElementById('official-count').textContent=summary.officialSnapshotsSaved ?? 0;
-  document.getElementById('pending-count').textContent=summary.pendingSnapshots ?? 3;
-  document.getElementById('latest-status').textContent=summary.latestStatusText||'等待接入統一投信官方每日持股端點';
-  const snapshots=(data.snapshots||[]).filter(s=>s.date>='2026-07-01');
-  const snapshotBody=document.querySelector('#snapshot-table tbody');
-  snapshotBody.innerHTML=snapshots.map(s=>`<tr><td>${s.date}</td><td>${statusText(s.status)}</td><td>${s.sourceName||'統一投信官網'}</td><td>${(s.holdings||[]).length}</td><td>${s.note||''}</td></tr>`).join('') || '<tr><td colspan="5">尚無 7/1 起快照。</td></tr>';
-  const holdings=snapshots.flatMap(s=>(s.holdings||[]).map(h=>({...h,date:s.date})));
-  const holdingBody=document.querySelector('#holding-table tbody');
-  holdingBody.innerHTML=holdings.length?holdings.map(h=>`<tr><td>${h.date}</td><td>${fmt(h.rank)}</td><td>${fmt(h.stockCode)}</td><td>${fmt(h.stockName)}</td><td>${fmt(h.weightPct)}</td><td>${fmt(h.shares)}</td><td>${fmt(h.marketValue)}</td></tr>`).join(''):'<tr><td colspan="7"><div class="empty">等待第一筆統一投信官方快照。取得後，這裡會顯示 00981A 每日持股明細。</div></td></tr>';
-  const changes=data.changes||[];
-  const changeBody=document.querySelector('#change-table tbody');
-  changeBody.innerHTML=changes.length?changes.map(c=>`<tr><td>${c.date}</td><td>${fmt(c.stockCode)}</td><td>${fmt(c.stockName)}</td><td>${fmt(c.changeType)}</td><td>${fmt(c.weightChangePctPoint)}</td><td>${fmt(c.shareChange)}</td></tr>`).join(''):'<tr><td colspan="6"><div class="empty">等待至少兩個官方快照後計算。邏輯：今日官方快照 - 前一個已保存官方快照。</div></td></tr>';
-}
-async function loadHistory(){
-  const fallback=JSON.parse(document.getElementById('fallback-data').textContent);
-  render(fallback);
-  try{
-    const res=await fetch('../data/00981A/holdings-history.json?v=20260703-2',{cache:'no-store'});
-    if(!res.ok) throw new Error('history not found');
-    const data=await res.json();
-    render(data);
-  }catch(err){
-    console.warn('Using fallback 00981A data',err);
-  }
-}
-loadHistory();
-</script>
 </body>
 </html>
