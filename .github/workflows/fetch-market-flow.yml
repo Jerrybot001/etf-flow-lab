@@ -2,6 +2,12 @@ name: Fetch market flow data
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/fetch_market_flow.py"
+      - ".github/workflows/fetch-market-flow.yml"
+      - "data/market-flow/history.json"
   schedule:
     # Taiwan 16:40, Monday to Friday. GitHub cron uses UTC.
     - cron: "40 8 * * 1-5"
