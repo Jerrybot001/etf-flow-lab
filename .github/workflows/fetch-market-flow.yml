@@ -9,9 +9,9 @@ on:
       - ".github/workflows/fetch-market-flow.yml"
       - "data/market-flow/history.json"
   schedule:
-    # Taiwan 16:40, Monday to Friday. GitHub cron uses UTC.
-    - cron: "40 8 * * 1-5"
-    # Taiwan 20:30, Monday to Friday. Recheck if official files are late.
+    # Taiwan 15:00-18:45, Monday to Friday. Poll every 15 minutes around official publish window.
+    - cron: "*/15 7-10 * * 1-5"
+    # Taiwan 20:30, Monday to Friday. Final recheck if official files are late.
     - cron: "30 12 * * 1-5"
 
 permissions:
