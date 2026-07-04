@@ -77,7 +77,7 @@ def fetch_twse_one(date: dt.date) -> Optional[Dict[str, Any]]:
     if not rows:
         return None
 
-    result = {
+    result: Dict[str, Any] = {
         "date": date.isoformat(),
         "sourceName": "TWSE 三大法人買賣金額統計表",
         "sourceUrl": url,
@@ -88,8 +88,11 @@ def fetch_twse_one(date: dt.date) -> Optional[Dict[str, Any]]:
         "rawRows": rows,
     }
 
+    foreign_sum = 0
+    foreign_seen = False
     dealer_sum = 0
     dealer_seen = False
+
     for row in rows:
         if len(row) < 4:
             continue
@@ -97,17 +100,28 @@ def fetch_twse_one(date: dt.date) -> Optional[Dict[str, Any]]:
         diff = ntd_int(row[3])
         if diff is None:
             continue
-        if "外資" in name and "合計" not in name:
-            result["foreignInvestor"] = diff
+
+        # TWSE usually has both:
+        # - 外資及陸資(不含外資自營商)
+        # - 外資自營商
+        # These belong to foreign investor flow and must be summed. Do not let
+        # the later 外資自營商 row overwrite the main 外資及陸資 row.
+        if name.startswith("外資及陸資") or name.startswith("外資自營商"):
+            foreign_sum += diff
+            foreign_seen = True
         elif name == "投信" or name.startswith("投信"):
             result["investmentTrust"] = diff
-        elif "自營商" in name and "合計" not in name:
+        elif name.startswith("自營商") and "合計" not in name:
             dealer_sum += diff
             dealer_seen = True
         elif "合計" in name:
             result["total"] = diff
+
+    if foreign_seen:
+        result["foreignInvestor"] = foreign_sum
     if dealer_seen:
         result["dealer"] = dealer_sum
+
     if any(result.get(k) is not None for k in ["foreignInvestor", "investmentTrust", "dealer", "total"]):
         return result
     return None
