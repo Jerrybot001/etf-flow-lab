@@ -13,22 +13,55 @@
 <nav class="nav"><a href="../">今日總覽</a><a href="00981A.html">00981A 歷史明細</a><a class="active" href="market-flow.html">法人 / 期貨</a><a href="etf-engine.html">ETF 引擎</a><a href="sources.html">資料來源</a></nav>
 <main class="wrap">
 <a class="btn" href="../">← 回首頁</a>
-<section class="hero"><div class="kicker">Market Flow｜History + Fallback</div><h1>法人 / 期貨</h1><p class="lead">這頁放籌碼歷史與今日狀態。今日資料還沒接到官方來源時，會顯示「前一可用資料」並清楚標資料日，不再空白，也不把舊資料當今日值。</p><span class="ok">可顯示前一可用資料</span><span class="pill">資料日標清楚</span><span class="warn">今日值待官方管線</span></section>
+<section class="hero"><div class="kicker">Market Flow｜Official Pipeline</div><h1>法人 / 期貨</h1><p id="hero-note" class="lead">這頁放籌碼歷史與今日狀態。今日資料還沒接到官方來源時，會顯示「前一可用資料」並清楚標資料日，不再空白，也不把舊資料當今日值。</p><span class="ok">已接後台 JSON</span><span class="pill">資料日標清楚</span><span class="warn">今日值待官方管線</span></section>
 <h2>目前可用資料</h2>
 <section class="grid g3">
 <article class="card"><div class="kicker">Market</div><h3>台股方向</h3><div class="big amber">前一交易日脈絡</div><p class="lead">最新盤前尚未有新收盤；下一次收盤後更新方向。</p></article>
-<article class="card"><div class="kicker">Futures</div><h3>外資期貨</h3><div class="big neg">-84,487 口</div><p class="lead">資料日：2026-07-02。前一可用資料，僅供盤前參考。</p></article>
-<article class="card"><div class="kicker">Institutional</div><h3>三大法人</h3><div class="big amber">待 TWSE 管線</div><p class="lead">尚未接到可穩定引用的官方數字，不填推估值。</p></article>
+<article class="card"><div class="kicker">Futures</div><h3>外資期貨</h3><div id="futures-big" class="big neg">-84,487 口</div><p id="futures-card-note" class="lead">資料日：2026-07-02。前一可用資料，僅供盤前參考。</p></article>
+<article class="card"><div class="kicker">Institutional</div><h3>三大法人</h3><div id="twse-big" class="big amber">待 TWSE 管線</div><p id="twse-card-note" class="lead">尚未接到可穩定引用的官方數字，不填推估值。</p></article>
 </section>
 <h2>欄位明細</h2>
 <section class="grid g2">
-<article class="card"><h3>三大法人現貨</h3><div class="stat"><b>外資及陸資</b><b class="amber">待 TWSE 官方值</b></div><div class="stat"><b>投信</b><b class="amber">待 TWSE 官方值</b></div><div class="stat"><b>自營商</b><b class="amber">待 TWSE 官方值</b></div><div class="stat"><b>合計</b><b class="amber">待 TWSE 官方值</b></div></article>
-<article class="card"><h3>外資期貨｜前一可用</h3><div class="stat"><b>資料日</b><b>2026-07-02</b></div><div class="stat"><b>商品</b><b>臺股期貨</b></div><div class="stat"><b>外資多方未平倉</b><b>4,770 口</b></div><div class="stat"><b>外資空方未平倉</b><b>89,257 口</b></div><div class="stat"><b>外資淨部位</b><b class="neg">-84,487 口</b></div></article>
+<article class="card"><h3>三大法人現貨</h3><div class="stat"><b>資料日</b><b id="twse-date" class="amber">待 TWSE 官方值</b></div><div class="stat"><b>外資及陸資</b><b id="twse-foreign" class="amber">待 TWSE 官方值</b></div><div class="stat"><b>投信</b><b id="twse-trust" class="amber">待 TWSE 官方值</b></div><div class="stat"><b>自營商</b><b id="twse-dealer" class="amber">待 TWSE 官方值</b></div><div class="stat"><b>合計</b><b id="twse-total" class="amber">待 TWSE 官方值</b></div></article>
+<article class="card"><h3>外資期貨｜前一可用</h3><div class="stat"><b>資料日</b><b id="futures-date">2026-07-02</b></div><div class="stat"><b>商品</b><b id="futures-product">臺股期貨</b></div><div class="stat"><b>外資多方未平倉</b><b id="futures-long">4,770 口</b></div><div class="stat"><b>外資空方未平倉</b><b id="futures-short">89,257 口</b></div><div class="stat"><b>外資淨部位</b><b id="futures-net" class="neg">-84,487 口</b></div></article>
 </section>
 <h2>資料原則</h2>
 <section class="card"><div class="notice">首頁與本頁可以顯示前一可用資料，但一定要標示資料日與「不是今日值」。今日 TWSE / TAIFEX 官方值接上後，會覆蓋前一可用資料並寫入歷史。</div></section>
 <h2>判斷邏輯</h2>
 <section class="card"><ul class="list"><li>外資現貨賣超 + 期貨淨空增加：偏防守。</li><li>外資現貨買超 + 期貨淨空縮小：偏轉強。</li><li>外資現貨與期貨不同向：先標「分歧」，不硬下結論。</li><li>只有前一可用資料：只能做盤前參考，不下今日結論。</li></ul></section>
 </main>
+<script>
+const fmt = v => (v === null || v === undefined || v === '') ? '待官方資料' : Number(v).toLocaleString('zh-TW');
+function money(v){return (v === null || v === undefined || v === '') ? '待 TWSE 官方值' : `${fmt(v)} 元`;}
+function lots(v){return (v === null || v === undefined || v === '') ? '待 TAIFEX 官方值' : `${fmt(v)} 口`;}
+async function loadMarketFlow(){
+  try{
+    const res = await fetch('../data/market-flow/history.json?v=20260706-1', {cache:'no-store'});
+    if(!res.ok) return;
+    const data = await res.json();
+    const f = data.futures || {};
+    const i = data.institutional || {};
+    if(f.date){
+      document.getElementById('futures-big').textContent = lots(f.foreignNetOpenInterest);
+      document.getElementById('futures-card-note').textContent = `資料日：${f.date}。${f.status === 'previous_available_not_today' ? '前一可用資料，不是今日值。' : '官方資料。'} ${f.note || ''}`;
+      document.getElementById('futures-date').textContent = f.date;
+      document.getElementById('futures-product').textContent = f.product || '臺股期貨';
+      document.getElementById('futures-long').textContent = lots(f.foreignLongOpenInterest);
+      document.getElementById('futures-short').textContent = lots(f.foreignShortOpenInterest);
+      document.getElementById('futures-net').textContent = lots(f.foreignNetOpenInterest);
+    }
+    if(i.date){
+      document.getElementById('twse-big').textContent = '已接 TWSE 官方值';
+      document.getElementById('twse-card-note').textContent = `資料日：${i.date}，數字來自 TWSE 官方資料管線。`;
+      document.getElementById('twse-date').textContent = i.date;
+      document.getElementById('twse-foreign').textContent = money(i.foreignInvestor);
+      document.getElementById('twse-trust').textContent = money(i.investmentTrust);
+      document.getElementById('twse-dealer').textContent = money(i.dealer);
+      document.getElementById('twse-total').textContent = money(i.total);
+    }
+  }catch(e){console.warn('market flow json not loaded', e)}
+}
+loadMarketFlow();
+</script>
 </body>
 </html>
