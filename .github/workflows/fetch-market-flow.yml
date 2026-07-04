@@ -1,0 +1,39 @@
+name: Fetch market flow data
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Taiwan 16:40, Monday to Friday. GitHub cron uses UTC.
+    - cron: "40 8 * * 1-5"
+    # Taiwan 20:30, Monday to Friday. Recheck if official files are late.
+    - cron: "30 12 * * 1-5"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-market-flow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Fetch TWSE and TAIFEX data
+        run: python scripts/fetch_market_flow.py
+
+      - name: Commit updated market flow history
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/market-flow/history.json
+          git commit -m "Update market flow history"
+          git push
