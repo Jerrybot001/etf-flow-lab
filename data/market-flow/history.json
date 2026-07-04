@@ -1,22 +1,12 @@
 {
-  "lastUpdatedAt": "2026-07-04T17:00:34+08:00",
-  "displayStage": "16:00 週六法人／期貨檢查版",
+  "lastUpdatedAt": "2026-07-04T17:02:29.301956+08:00",
+  "displayStage": "market-flow official fetch",
   "runDate": "2026-07-04",
-  "rule": "首頁可顯示前一可用資料，但必須標示資料日；不可把前一日或舊資料當成今日值。00981A 未取得統一投信官方每日持股時，一律標示待更新。",
-  "stageStatus": {
-    "stageType": "16:00 法人／期貨",
-    "dataDateLabel": "台股前一交易日 2026-07-03",
-    "taiwanUpdateTime": "2026-07-04 17:00",
-    "sourceStatus": "2026-07-04 為週六，無同日 TWSE / TAIFEX 新值；本輪顯示 2026-07-03 前一交易日官方資料。",
-    "internationalIndexStatus": "待接正式來源或以前一交易日脈絡標示。",
-    "etf00981AStatus": "待更新；未使用舊 Demo 或第三方持股。"
-  },
+  "rule": "首頁可顯示前一可用資料，但必須標示資料日；不可把前一日或舊資料當成今日值。",
   "institutional": {
     "date": "2026-07-03",
     "sourceName": "TWSE 三大法人買賣金額統計表",
     "sourceUrl": "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20260703&type=day&response=json",
-    "sourceStatus": "official_previous_session",
-    "note": "2026-07-04 為週六，本筆為前一交易日官方資料，不是今日新值。",
     "foreignInvestor": -77782612615,
     "investmentTrust": 7502170019,
     "dealer": -3259588256,
@@ -64,8 +54,6 @@
     "date": "2026-07-03",
     "sourceName": "TAIFEX 三大法人期貨未平倉",
     "sourceUrl": "https://www.taifex.com.tw/cht/3/futContractsDateDown?queryStartDate=2026%2F07%2F03&queryEndDate=2026%2F07%2F03",
-    "sourceStatus": "official_previous_session",
-    "note": "2026-07-04 為週六，本筆為前一交易日官方資料，不是今日新值。",
     "product": "臺股期貨",
     "foreignLongOpenInterest": 6178,
     "foreignShortOpenInterest": 87230,
@@ -89,17 +77,12 @@
     ]
   },
   "summary": {
-    "institutionalLabel": "TWSE 三大法人 2026-07-03（前一交易日官方資料）",
-    "futuresLabel": "TAIFEX 外資期貨 2026-07-03（前一交易日官方資料）",
+    "institutionalLabel": "TWSE 三大法人 2026-07-03",
+    "futuresLabel": "TAIFEX 外資期貨 2026-07-03",
     "foreignInvestorText": "-77,782,612,615",
     "investmentTrustText": "7,502,170,019",
     "dealerText": "-3,259,588,256",
-    "foreignFuturesNetText": "-81,052",
-    "marketDirection": "前一交易日偏弱；週六無同日新值。",
-    "institutionalInterpretation": "外資大幅賣超、投信買超支撐有限，自營商偏賣；期貨外資維持淨空，籌碼偏保守。",
-    "etfStatus": "00981A 官方每日持股待更新；不使用舊 Demo 或第三方持股。",
-    "globalIndexStatus": "本輪未接正式可靠來源，標示待接正式來源或以前一交易日脈絡處理。",
-    "nextWatch": "下一交易日觀察外資賣超是否收斂、期貨淨空是否降至 -80,000 口以下、00981A 官方快照是否可接入。"
+    "foreignFuturesNetText": "-81,052"
   },
   "history": [
     {
@@ -121,8 +104,6 @@
         "date": "2026-07-03",
         "sourceName": "TAIFEX 三大法人期貨未平倉",
         "sourceUrl": "https://www.taifex.com.tw/cht/3/futContractsDateDown?queryStartDate=2026%2F07%2F03&queryEndDate=2026%2F07%2F03",
-        "sourceStatus": "official_previous_session",
-        "note": "2026-07-04 為週六，本筆為前一交易日官方資料，不是今日新值。",
         "product": "臺股期貨",
         "foreignLongOpenInterest": 6178,
         "foreignShortOpenInterest": 87230,
@@ -153,8 +134,6 @@
         "date": "2026-07-03",
         "sourceName": "TWSE 三大法人買賣金額統計表",
         "sourceUrl": "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20260703&type=day&response=json",
-        "sourceStatus": "official_previous_session",
-        "note": "2026-07-04 為週六，本筆為前一交易日官方資料，不是今日新值。",
         "foreignInvestor": -77782612615,
         "investmentTrust": 7502170019,
         "dealer": -3259588256,
