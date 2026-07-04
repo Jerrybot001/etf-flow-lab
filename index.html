@@ -5,79 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ETF Flow Lab｜今日總覽</title>
 <style>
-:root{--bg:#f7efe2;--paper:#fff9ee;--ink:#151915;--muted:#6d6a5e;--green:#153f31;--line:#e2d0ae;--red:#a9453b;--good:#19724a;--amber:#9b6a18;--shadow:0 24px 70px rgba(38,35,26,.12)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,sans-serif}.top{height:8px;background:linear-gradient(90deg,var(--green),#e7c47b,#d88333)}.nav{width:fit-content;max-width:min(740px,92vw);margin:18px max(4vw,calc((100vw - 1120px)/2)) 0 auto;background:rgba(255,249,238,.9);border:1px solid var(--line);box-shadow:0 12px 36px rgba(38,35,26,.08);border-radius:999px;padding:6px;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;position:sticky;top:10px;z-index:10;backdrop-filter:blur(10px)}.nav a{padding:7px 11px;border-radius:999px;text-decoration:none;color:var(--green);font-size:12.5px;font-weight:950;border:1px solid transparent;white-space:nowrap}.nav a.active,.nav a:hover{background:#fff8ec;border-color:var(--line)}.wrap{width:min(1120px,92vw);margin:0 auto 56px}.hero{width:min(1120px,92vw);margin:18px auto 24px;display:grid;grid-template-columns:1fr .86fr;gap:22px}.cover,.side,.card,.panel{background:var(--paper);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow)}.cover{padding:40px}.side{background:var(--green);color:#fff;padding:30px}.kicker{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:#c0772f}.side .kicker{color:#e7c47b}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,7vw,82px);line-height:.92;letter-spacing:-.05em;margin:16px 0}h2{font-family:Georgia,"Times New Roman",serif;font-size:32px;margin:0 0 14px}h3{font-size:21px;margin:8px 0 10px}.lead{font-size:18px;line-height:1.8;color:var(--muted)}.white{color:rgba(255,255,255,.84);line-height:1.9}.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{padding:24px;min-height:250px}.panel{padding:20px}.pill,.warn,.ok,.amberpill{display:inline-flex;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900;margin:4px 6px 4px 0}.pill{background:#fff8ec;border:1px solid var(--line);color:var(--green)}.warn{background:#fff0ea;border:1px solid rgba(169,69,59,.25);color:var(--red)}.ok{background:#edf5ef;color:var(--good)}.amberpill{background:#fff7e5;border:1px solid rgba(155,106,24,.24);color:var(--amber)}.big{font-size:34px;font-weight:950;margin:16px 0 6px}.sub{color:var(--muted);line-height:1.75}.neg{color:var(--red);font-weight:950}.pos{color:var(--good);font-weight:950}.amber{color:var(--amber);font-weight:950}.small-lines{border-top:1px solid var(--line);margin-top:16px;padding-top:12px;display:grid;gap:7px;color:var(--muted);font-size:14px}.line{display:flex;justify-content:space-between;gap:12px}.btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff8ec;color:var(--green);text-decoration:none;font-weight:950}.btn:hover{filter:brightness(.98)}.section{margin:32px 0 14px}.source{font-size:13px;color:var(--muted);line-height:1.8}.footer{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:13px;line-height:1.8}@media(max-width:900px){.hero,.g3,.mini{grid-template-columns:1fr}.cover{padding:30px}.nav{width:min(92vw,740px);margin:14px auto 0;border-radius:24px;justify-content:center}.nav a{flex:1 1 auto;text-align:center}.card{min-height:auto}}
+:root{--bg:#f7efe2;--paper:#fff9ee;--ink:#151915;--muted:#6d6a5e;--green:#153f31;--line:#e2d0ae;--red:#a9453b;--good:#19724a;--amber:#9b6a18;--shadow:0 24px 70px rgba(38,35,26,.12)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,sans-serif}.top{height:8px;background:linear-gradient(90deg,var(--green),#e7c47b,#d88333)}.nav{width:fit-content;max-width:min(760px,92vw);margin:18px max(4vw,calc((100vw - 1120px)/2)) 0 auto;background:rgba(255,249,238,.9);border:1px solid var(--line);box-shadow:0 12px 36px rgba(38,35,26,.08);border-radius:999px;padding:6px;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;position:sticky;top:10px;z-index:10;backdrop-filter:blur(10px)}.nav a{padding:7px 11px;border-radius:999px;text-decoration:none;color:var(--green);font-size:12.5px;font-weight:950;border:1px solid transparent;white-space:nowrap}.nav a.active,.nav a:hover{background:#fff8ec;border-color:var(--line)}.wrap{width:min(1120px,92vw);margin:0 auto 56px}.hero{width:min(1120px,92vw);margin:18px auto 24px;display:grid;grid-template-columns:1fr .86fr;gap:22px}.cover,.side,.card,.panel{background:var(--paper);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow)}.cover{padding:40px}.side{background:var(--green);color:#fff;padding:30px}.kicker{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:#c0772f}.side .kicker{color:#e7c47b}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,7vw,82px);line-height:.92;letter-spacing:-.05em;margin:16px 0}h2{font-family:Georgia,"Times New Roman",serif;font-size:32px;margin:0 0 14px}h3{font-size:21px;margin:8px 0 10px}.lead{font-size:18px;line-height:1.8;color:var(--muted)}.white{color:rgba(255,255,255,.84);line-height:1.9}.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.mini{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{padding:24px;min-height:250px}.panel{padding:20px}.pill,.warn,.ok,.amberpill{display:inline-flex;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900;margin:4px 6px 4px 0}.pill{background:#fff8ec;border:1px solid var(--line);color:var(--green)}.warn{background:#fff0ea;border:1px solid rgba(169,69,59,.25);color:var(--red)}.ok{background:#edf5ef;color:var(--good)}.amberpill{background:#fff7e5;border:1px solid rgba(155,106,24,.24);color:var(--amber)}.big{font-size:34px;font-weight:950;margin:16px 0 6px}.sub{color:var(--muted);line-height:1.75}.neg{color:var(--red);font-weight:950}.pos{color:var(--good);font-weight:950}.amber{color:var(--amber);font-weight:950}.small-lines{border-top:1px solid var(--line);margin-top:16px;padding-top:12px;display:grid;gap:7px;color:var(--muted);font-size:14px}.line{display:flex;justify-content:space-between;gap:12px}.btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff8ec;color:var(--green);text-decoration:none;font-weight:950}.section{margin:32px 0 14px}.source{font-size:13px;color:var(--muted);line-height:1.8}.footer{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:13px;line-height:1.8}@media(max-width:900px){.hero,.g3,.mini{grid-template-columns:1fr}.cover{padding:30px}.nav{width:min(92vw,740px);margin:14px auto 0;border-radius:24px;justify-content:center}.nav a{flex:1 1 auto;text-align:center}.card{min-height:auto}}
 </style>
 </head>
 <body>
 <div class="top"></div>
-<nav class="nav" aria-label="ETF Flow Lab 分頁導覽">
-<a class="active" href="./">今日總覽</a>
-<a href="pages/00981A.html">00981A</a>
-<a href="pages/market-flow.html">法人 / 期貨</a>
-<a href="pages/etf-engine.html">ETF 引擎</a>
-<a href="pages/sources.html">資料來源</a>
-</nav>
+<nav class="nav" aria-label="ETF Flow Lab 分頁導覽"><a class="active" href="./">今日總覽</a><a href="pages/00981A.html">00981A</a><a href="pages/market-flow.html">法人 / 期貨</a><a href="pages/etf-engine.html">ETF 引擎</a><a href="pages/sources.html">資料來源</a></nav>
 <header class="hero">
-<section class="cover">
-<div class="kicker">ETF Flow Lab｜Daily Brief</div>
-<h1>今日<br>總覽</h1>
-<p class="lead">首頁只放當日重點：收盤後資金流向、外資期貨、三大法人。今日資料尚未更新時，清楚標示前一可用資料日，不把舊資料當今天。</p>
-<span class="ok">乾淨首頁</span><span class="amberpill">金額用億元</span><span class="warn">不塞假資料</span>
-</section>
-<aside class="side"><div class="kicker">Update Rule</div><h2>外面看重點，裡面看歷史</h2><p class="white">首頁顯示最新一筆；法人 / 期貨分頁累積每天 TWSE 與 TAIFEX 官方資料。</p></aside>
+<section class="cover"><div class="kicker">ETF Flow Lab｜Daily Brief</div><h1>今日<br>總覽</h1><p class="lead">21:00 完整日報版｜資料日期：台股前一交易日 2026-07-03；台灣更新時間：2026-07-04 21:59。2026-07-04 為週六，無同日台股收盤、三大法人與期貨新值；本頁明確標示使用前一交易日官方資料。</p><span class="ok">21:00 完整日報</span><span class="amberpill">前一交易日標籤</span><span class="warn">不塞假資料</span></section>
+<aside class="side"><div class="kicker">Source Status</div><h2>有官方才貼值</h2><p class="white">三大法人與外資期貨同頁呈現；00981A 只接受統一投信官方每日持股，未取得則維持待更新。國際指數未接可靠即時來源時，不硬填數字。</p></aside>
 </header>
 <main class="wrap">
 <section class="grid g3">
-<article class="card"><div class="kicker">Capital Flow</div><h3>收盤後資金流向</h3><div id="market-title" class="big neg">資金淨流出 735.4 億</div><p id="market-note" class="sub">資料日：2026-07-03，三大法人合計淨賣超 735.4 億。</p><a class="btn" href="pages/market-flow.html">看市場與籌碼 →</a></article>
-<article class="card"><div class="kicker">Futures</div><h3>外資期貨</h3><div id="futures-net" class="big neg">-81,052 口</div><p id="futures-note" class="sub">資料日：2026-07-03，外資期貨淨空單。</p><a class="btn" href="pages/market-flow.html">看歷史資料 →</a></article>
-<article class="card"><div class="kicker">Institutional</div><h3>三大法人</h3><div id="institutional-big" class="big neg">外資 -777.8 億</div><p id="institutional-note" class="sub">投信 +75.0 億｜自營商 -32.6 億｜合計 -735.4 億</p><div class="small-lines"><div class="line"><span>資料日</span><b id="institutional-date">2026-07-03</b></div><div class="line"><span>單位</span><b>億元</b></div></div><a class="btn" href="pages/market-flow.html">看三大法人明細 →</a></article>
+<article class="card"><div class="kicker">Market Direction</div><h3>市場方向</h3><div class="big neg">前一交易日偏弱</div><p class="sub">資料日：2026-07-03。三大法人合計賣超 735.4 億，外資期貨淨空 -81,052 口；週六無同日新值。</p><a class="btn" href="pages/market-flow.html">看市場與籌碼 →</a></article>
+<article class="card"><div class="kicker">Futures</div><h3>外資期貨</h3><div class="big neg">-81,052 口</div><p class="sub">資料日：2026-07-03。TAIFEX 前一交易日官方資料；多方 6,178 口，空方 87,230 口。</p><a class="btn" href="pages/market-flow.html">看歷史資料 →</a></article>
+<article class="card"><div class="kicker">Institutional</div><h3>三大法人</h3><div class="big neg">外資 -777.8 億</div><p class="sub">投信 +75.0 億｜自營商 -32.6 億｜合計 -735.4 億。資料日：2026-07-03。</p><div class="small-lines"><div class="line"><span>來源狀態</span><b>TWSE 前一交易日官方資料</b></div><div class="line"><span>單位</span><b>億元</b></div></div><a class="btn" href="pages/market-flow.html">看三大法人明細 →</a></article>
+</section>
+<section class="section"><h2>21:00 摘要</h2></section>
+<section class="grid g3">
+<article class="panel"><div class="kicker">Interpretation</div><h3>法人 / 期貨判讀</h3><p class="source">外資現貨大賣、期貨仍維持大幅淨空，投信買超只能提供局部支撐，整體籌碼偏防守。</p></article>
+<article class="panel"><div class="kicker">ETF</div><h3>00981A 狀態</h3><p class="source">00981A 官方每日持股尚未取得，維持「待更新」；沒有使用舊 Demo 或第三方持股。</p></article>
+<article class="panel"><div class="kicker">Global</div><h3>國際指數</h3><p class="source">美股 2026-07-03 因獨立紀念日補假休市，僅以前一交易日脈絡說明；即時國際指數數值待接正式可靠來源。</p></article>
 </section>
 <section class="section"><h2>資料更新狀態</h2></section>
 <section class="mini">
-<article class="panel"><div class="kicker">TWSE</div><h3>三大法人</h3><p id="twse-status" class="source">已接 TWSE 官方資料，金額以億元顯示。</p></article>
-<article class="panel"><div class="kicker">TAIFEX</div><h3>外資期貨</h3><p id="taifex-status" class="source">已接 TAIFEX 官方資料，單位為口。</p></article>
-<article class="panel"><div class="kicker">Uni-President</div><h3>00981A 持股</h3><p class="source">等待統一投信官方固定端點或官方檔案。</p></article>
-<article class="panel"><div class="kicker">History</div><h3>歷史明細</h3><p class="source">詳細資料統一進分頁，不塞在首頁。</p></article>
+<article class="panel"><div class="kicker">TWSE</div><h3>三大法人</h3><p class="source">2026-07-03 官方前一交易日資料已保存；週六無同日新值。</p></article>
+<article class="panel"><div class="kicker">TAIFEX</div><h3>外資期貨</h3><p class="source">2026-07-03 官方前一交易日資料已保存；外資淨部位 -81,052 口。</p></article>
+<article class="panel"><div class="kicker">Uni-President</div><h3>00981A 持股</h3><p class="source">待更新：等待統一投信官方每日持股固定端點或官方檔案。</p></article>
+<article class="panel"><div class="kicker">Global Index</div><h3>國際指數</h3><p class="source">待接正式來源；不使用未驗證即時值。</p></article>
 </section>
-<section class="section"><h2>更新原則</h2></section>
-<section class="panel source"><p>TWSE 三大法人與 TAIFEX 外資期貨每天自動抓、累積歷史。首頁顯示最新一筆；今日資料沒出來時可以顯示前一可用資料，但一定要標資料日與不是今日值。</p></section>
-<footer class="footer">固定網址：https://jerrybot001.github.io/etf-flow-lab/｜首頁只放三張大卡；詳細與歷史全部進分頁。</footer>
+<section class="section"><h2>下一步觀察</h2></section>
+<section class="panel source"><p>下一交易日觀察：外資賣超是否收斂、期貨淨空是否降至 -80,000 口以下、投信買超是否延續、00981A 官方每日持股是否可取得、美股恢復交易後科技股與半導體是否止穩。</p></section>
+<footer class="footer">固定網址：https://jerrybot001.github.io/etf-flow-lab/｜本頁只放結論與狀態；詳細與歷史資料請看分頁。</footer>
 </main>
-<script>
-const fmt = v => (v === null || v === undefined || v === '') ? '待官方資料' : Number(v).toLocaleString('zh-TW');
-function yi(v){if(v===null||v===undefined||v==='')return '待官方資料';const n=Number(v)/100000000;return `${n.toLocaleString('zh-TW',{minimumFractionDigits:1,maximumFractionDigits:1})} 億`;}
-function signedYi(v){if(v===null||v===undefined||v==='')return '待官方資料';const n=Number(v)/100000000;const s=n>0?'+':'';return `${s}${n.toLocaleString('zh-TW',{minimumFractionDigits:1,maximumFractionDigits:1})} 億`;}
-function lots(v){return (v===null||v===undefined||v==='')?'待官方資料':`${fmt(v)} 口`;}
-function setClass(el,v){el.classList.remove('pos','neg','amber');el.classList.add(Number(v)<0?'neg':Number(v)>0?'pos':'amber');}
-async function loadMarketFlow(){
-  try{
-    const res = await fetch('data/market-flow/history.json?v=20260706-4', {cache:'no-store'});
-    if(!res.ok) return;
-    const data = await res.json();
-    const f = data.futures || {};
-    const i = data.institutional || {};
-    if(i.date){
-      const m=document.getElementById('market-title');
-      m.textContent = Number(i.total) >= 0 ? `資金淨流入 ${yi(i.total)}` : `資金淨流出 ${yi(Math.abs(i.total))}`;
-      setClass(m, i.total);
-      document.getElementById('market-note').textContent = `資料日：${i.date}，外資 ${signedYi(i.foreignInvestor)}、投信 ${signedYi(i.investmentTrust)}、自營商 ${signedYi(i.dealer)}，合計 ${signedYi(i.total)}。`;
-      const ib=document.getElementById('institutional-big');
-      ib.textContent = `外資 ${signedYi(i.foreignInvestor)}`;
-      setClass(ib, i.foreignInvestor);
-      document.getElementById('institutional-note').textContent = `投信 ${signedYi(i.investmentTrust)}｜自營商 ${signedYi(i.dealer)}｜合計 ${signedYi(i.total)}`;
-      document.getElementById('institutional-date').textContent = i.date;
-      document.getElementById('twse-status').textContent = `資料日：${i.date}，外資 ${signedYi(i.foreignInvestor)}，投信 ${signedYi(i.investmentTrust)}，自營商 ${signedYi(i.dealer)}，合計 ${signedYi(i.total)}。`;
-    }
-    if(f.date){
-      const fb=document.getElementById('futures-net');
-      fb.textContent = lots(f.foreignNetOpenInterest);
-      setClass(fb, f.foreignNetOpenInterest);
-      document.getElementById('futures-note').textContent = `資料日：${f.date}，多方 ${lots(f.foreignLongOpenInterest)}，空方 ${lots(f.foreignShortOpenInterest)}，淨部位 ${lots(f.foreignNetOpenInterest)}。`;
-      document.getElementById('taifex-status').textContent = `資料日：${f.date}，外資淨部位 ${lots(f.foreignNetOpenInterest)}。`;
-    }
-  }catch(e){console.warn('market flow json not loaded', e)}
-}
-loadMarketFlow();
-</script>
 </body>
 </html>
