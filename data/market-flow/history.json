@@ -1,0 +1,61 @@
+{
+  "lastUpdatedAt": "2026-07-06T05:00:00+08:00",
+  "displayStage": "05:00 盤前版",
+  "effectiveDataDate": "2026-07-03",
+  "rule": "首頁可顯示前一可用資料，但必須標示清楚資料日；不可把前一日或舊資料當成今日值。",
+  "summary": {
+    "title": "盤前沿用上一交易日資料",
+    "text": "目前為盤前版，台股尚未產生新的收盤與法人期貨資料；首頁先顯示前一可用資料與待更新狀態，詳細歷史放分頁。"
+  },
+  "market": {
+    "dataDate": "2026-07-03",
+    "status": "previous_trading_day",
+    "label": "前一交易日收盤狀態",
+    "direction": "偏弱整理，待下一交易日收盤更新",
+    "taiexClose": null,
+    "note": "尚未接入可穩定引用的 TWSE 收盤 API；首頁只顯示方向，不填未驗證指數點位。"
+  },
+  "institutional": {
+    "dataDate": "2026-07-03",
+    "status": "awaiting_official_feed",
+    "foreignInvestor": null,
+    "investmentTrust": null,
+    "dealer": null,
+    "total": null,
+    "note": "待接 TWSE 三大法人官方資料；沒有官方值前不填推估值。"
+  },
+  "futures": {
+    "dataDate": "2026-07-02",
+    "status": "previous_available_not_today",
+    "product": "臺股期貨",
+    "foreignLongOpenInterest": 4770,
+    "foreignShortOpenInterest": 89257,
+    "foreignNetOpenInterest": -84487,
+    "note": "前一可用外資期貨淨部位；僅作盤前參考，不是今日值。"
+  },
+  "etf": {
+    "code": "00981A",
+    "name": "主動統一台股增長",
+    "dataDate": null,
+    "status": "awaiting_uni_official_holdings_endpoint",
+    "note": "00981A 官方每日持股端點尚未找到；不使用第三方或 Demo 持股。"
+  },
+  "history": [
+    {
+      "date": "2026-07-02",
+      "type": "futures",
+      "label": "外資臺股期貨淨部位",
+      "value": -84487,
+      "unit": "口",
+      "status": "previous_available_not_today"
+    },
+    {
+      "date": "2026-07-03",
+      "type": "institutional",
+      "label": "三大法人現貨",
+      "value": null,
+      "unit": "元",
+      "status": "awaiting_official_feed"
+    }
+  ]
+}
