@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ETF Flow Lab｜今日台股市場溫度</title>
+<title>Taiwan Market Pulse｜今日台股市場溫度</title>
 <style>
 :root{
   --bg:#f7efe2;
@@ -16,80 +16,157 @@
   --champagne:#c8a96a;
   --line:#e4d2b4;
   --red:#c9463b;
-  --green:#228058;
-  --soft-red:#fff0ec;
-  --soft-green:#eef7f1;
+  --green:#19724a;
   --shadow:0 22px 64px rgba(80,55,32,.10);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(circle at top left,#fff8ec 0,#f7efe2 42%,#f3e5cf 100%);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{margin:0;background:radial-gradient(circle at top left,#fff8ec 0,#f7efe2 45%,#f3e5cf 100%);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 .topbar{height:8px;background:linear-gradient(90deg,var(--coffee),var(--champagne),#e0b56e)}
-.nav{width:min(1120px,92vw);margin:18px auto 0;display:flex;justify-content:space-between;align-items:center;gap:18px}
-.brand{font-weight:950;letter-spacing:.02em;color:var(--coffee);font-size:18px}.brand span{color:var(--champagne)}
+.nav{width:min(1160px,92vw);margin:18px auto 0;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.brand{font-weight:950;letter-spacing:.01em;color:var(--coffee);font-size:23px}.brand span{color:var(--champagne)}
 .links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;background:rgba(255,250,241,.72);border:1px solid var(--line);border-radius:999px;padding:6px;backdrop-filter:blur(10px)}
 .links a{padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--coffee);font-size:13px;font-weight:900;border:1px solid transparent;white-space:nowrap}.links a.active,.links a:hover{background:#fff8ec;border-color:var(--line)}
-.wrap{width:min(1120px,92vw);margin:26px auto 64px}.hero{display:grid;grid-template-columns:1.35fr .75fr;gap:22px;margin-bottom:22px}.panel,.card,.searchbox{background:rgba(255,250,241,.92);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow)}
-.panel{padding:30px}.quote{padding:30px;background:linear-gradient(145deg,#fffaf1 0%,#fff1da 100%)}.kicker{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:var(--coffee2);margin-bottom:12px}.date{color:var(--muted);font-size:13px;font-weight:800}.hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px}.index-name{font-size:16px;color:var(--muted);font-weight:900}.index-value{font-family:Georgia,"Times New Roman",serif;font-size:clamp(50px,7vw,78px);line-height:.95;letter-spacing:-.05em;margin:4px 0 10px;color:var(--ink)}.up{color:var(--red)}.down{color:var(--green)}.flat{color:var(--muted)}.change{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-weight:950;font-size:22px}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:7px 11px;font-size:13px;font-weight:950;background:#fff4df;border:1px solid var(--line);color:var(--coffee)}.chart{height:235px;margin-top:24px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#fffaf1,#fff5e6);position:relative;overflow:hidden}.gridline{position:absolute;left:0;right:0;height:1px;background:rgba(117,88,66,.11)}.g1{top:25%}.g2{top:50%}.g3{top:75%}.chart svg{position:absolute;inset:18px 20px 26px 20px;width:calc(100% - 40px);height:calc(100% - 44px)}.chart-footer{position:absolute;left:20px;right:20px;bottom:8px;display:flex;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:800}.quote h1{font-family:Georgia,"Times New Roman",serif;font-size:36px;line-height:1.08;letter-spacing:-.03em;margin:8px 0 18px;color:var(--coffee)}.quote-text{font-size:24px;line-height:1.55;font-weight:950;color:var(--ink);margin:8px 0}.quote-source{color:var(--muted);font-weight:800}.observation{margin-top:22px;padding:18px;border-radius:22px;background:rgba(255,255,255,.58);border:1px solid var(--line);line-height:1.75;color:var(--muted);font-weight:800}.section-title{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:26px 0 14px}.section-title h2{font-family:Georgia,"Times New Roman",serif;font-size:30px;margin:0;color:var(--coffee)}.section-title p{margin:0;color:var(--muted);font-size:13px;font-weight:800}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{padding:22px;min-height:158px}.card h3{margin:0 0 16px;font-size:15px;color:var(--muted)}.num{font-size:31px;font-weight:950;letter-spacing:-.02em}.unit{font-size:14px;margin-left:3px;color:var(--muted);font-weight:900}.sub{margin-top:12px;color:var(--muted);line-height:1.65;font-size:14px;font-weight:800}.futures{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.searchbox{margin-top:28px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:linear-gradient(135deg,#fffaf1,#fff1dc)}.searchbox h2{font-family:Georgia,"Times New Roman",serif;font-size:32px;margin:0 0 8px;color:var(--coffee)}.searchbox p{margin:0;color:var(--muted);font-weight:800;line-height:1.7}.search-input{min-width:310px;border:1px solid var(--line);border-radius:999px;background:#fffaf1;padding:14px 18px;color:var(--muted);font-weight:900;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}.cta{display:inline-flex;margin-top:12px;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--coffee),var(--coffee2));border-radius:999px;padding:12px 16px;font-weight:950}.mini{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.mini span{border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:7px 10px;color:var(--coffee);font-size:13px;font-weight:900}@media(max-width:920px){.nav{align-items:flex-start;flex-direction:column}.links{border-radius:22px;justify-content:center}.links a{flex:1 1 auto;text-align:center}.hero,.cards,.futures,.searchbox{grid-template-columns:1fr}.search-input{min-width:0;width:100%}.panel,.quote{padding:24px}.chart{height:210px}}
+.wrap{width:min(1160px,92vw);margin:26px auto 64px}.hero{display:grid;grid-template-columns:1.42fr .58fr;gap:22px;margin-bottom:26px;align-items:stretch}.panel,.card{background:rgba(255,250,241,.92);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow)}
+.panel{padding:28px}.kicker{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:var(--coffee2);margin-bottom:10px}.meta{color:var(--muted);font-size:13px;font-weight:800}.hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}.index-title{font-size:18px;color:var(--muted);font-weight:950}.index-value{font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,6vw,68px);line-height:.95;letter-spacing:-.05em;margin:6px 0 10px;color:var(--ink)}.up{color:var(--red)}.down{color:var(--green)}.change{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-weight:950;font-size:22px}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:7px 11px;font-size:13px;font-weight:950;background:#fff4df;border:1px solid var(--line);color:var(--coffee);white-space:nowrap}
+.chart-shell{margin-top:20px}.chart-grid{display:grid;grid-template-columns:76px 1fr;grid-template-rows:300px 38px;gap:0}.y-axis{grid-row:1;grid-column:1;position:relative;color:var(--muted);font-size:12px;font-weight:900}.y-tick{position:absolute;right:10px;transform:translateY(-50%)}.plot{grid-row:1;grid-column:2;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#fffaf1,#fff5e6);position:relative;overflow:hidden}.plot .gridline{position:absolute;left:0;right:0;height:1px;background:rgba(117,88,66,.12)}.plot svg{position:absolute;inset:0;width:100%;height:100%}.x-axis{grid-row:2;grid-column:2;display:grid;grid-template-columns:repeat(10,1fr);align-items:center;color:var(--muted);font-size:12px;font-weight:900}.x-axis span{text-align:center}.axis-caption{grid-row:2;grid-column:1;color:var(--muted);font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:flex-end;padding-right:10px}.note{padding:28px;background:linear-gradient(145deg,#fffaf1 0%,#fff1da 100%);display:flex;flex-direction:column;justify-content:space-between}.note h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;line-height:1.18;letter-spacing:-.03em;margin:8px 0 14px;color:var(--coffee)}.quote-text{font-size:18px;line-height:1.75;font-weight:900;color:var(--ink);margin:8px 0}.quote-source{color:var(--muted);font-size:13px;font-weight:800}.observation{margin-top:18px;padding:16px;border-radius:22px;background:rgba(255,255,255,.58);border:1px solid var(--line);line-height:1.72;color:var(--muted);font-weight:850;font-size:15px}.section-title{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:24px 0 14px}.section-title h2{font-family:Georgia,"Times New Roman",serif;font-size:30px;margin:0;color:var(--coffee)}.section-title p{margin:0;color:var(--muted);font-size:13px;font-weight:900}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.futures{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:22px;min-height:156px}.card h3{margin:0 0 16px;font-size:15px;color:var(--muted)}.num{font-size:31px;font-weight:950;letter-spacing:-.02em}.unit{font-size:14px;margin-left:3px;color:var(--muted);font-weight:900}.sub{margin-top:12px;color:var(--muted);line-height:1.65;font-size:14px;font-weight:800}.delta{margin-top:8px;font-size:14px;font-weight:950}.source-line{margin-top:22px;color:var(--muted);font-size:12px;font-weight:800;text-align:right}
+@media(max-width:980px){.nav{align-items:flex-start;flex-direction:column}.links{border-radius:22px;justify-content:center}.links a{flex:1 1 auto;text-align:center}.hero,.cards,.futures{grid-template-columns:1fr}.panel,.note{padding:24px}.chart-grid{grid-template-columns:70px 1fr;grid-template-rows:250px 38px}.x-axis{font-size:10px}.brand{font-size:21px}}
 </style>
 </head>
 <body>
 <div class="topbar"></div>
-<nav class="nav" aria-label="ETF Flow Lab 分頁導覽">
-  <div class="brand">ETF Flow <span>Lab</span></div>
+<nav class="nav" aria-label="市場分頁導覽">
+  <div class="brand">Taiwan Market <span>Pulse</span></div>
   <div class="links"><a class="active" href="./">今日總覽</a><a href="pages/00981A.html">00981A</a><a href="pages/market-flow.html">法人 / 期貨</a><a href="pages/etf-engine.html">ETF 引擎</a><a href="pages/sources.html">資料來源</a></div>
 </nav>
 <main class="wrap">
   <section class="hero">
     <article class="panel">
       <div class="hero-head">
-        <div><div class="kicker">Taiwan Market Pulse</div><div class="index-name">加權指數｜2026/07/03 收盤</div></div>
-        <div class="badge">市場氣氛：偏空觀察</div>
+        <div><div class="kicker">Weighted Index</div><div class="index-title">加權指數｜<span id="tradeDate">2026/07/03</span> 收盤</div></div>
+        <div class="badge" id="marketMood">市場氣氛：偏空觀察</div>
       </div>
-      <div class="index-value">22,547.50</div>
-      <div class="change"><span class="down">▼ -301.24 點</span><span class="down">-1.32%</span></div>
-      <div class="chart" aria-label="加權指數今日走勢圖">
-        <div class="gridline g1"></div><div class="gridline g2"></div><div class="gridline g3"></div>
-        <svg viewBox="0 0 620 190" preserveAspectRatio="none" role="img">
-          <defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#228058" stop-opacity=".22"/><stop offset="1" stop-color="#228058" stop-opacity="0"/></linearGradient></defs>
-          <path d="M0,45 C58,52 94,38 137,61 C182,83 222,78 268,96 C318,116 360,96 405,126 C455,158 514,145 620,166 L620,190 L0,190 Z" fill="url(#area)"/>
-          <path d="M0,45 C58,52 94,38 137,61 C182,83 222,78 268,96 C318,116 360,96 405,126 C455,158 514,145 620,166" fill="none" stroke="#228058" stroke-width="5" stroke-linecap="round"/>
-        </svg>
-        <div class="chart-footer"><span>09:00</span><span>11:00</span><span>13:30</span></div>
+      <div class="index-value" id="closeValue">22,547.50</div>
+      <div class="change"><span class="down" id="pointChange">▼ -301.24 點</span><span class="down" id="pctChange">-1.32%</span></div>
+      <div class="chart-shell" aria-label="加權指數今日走勢圖">
+        <div class="chart-grid">
+          <div class="y-axis" id="yAxis"></div>
+          <div class="plot" id="plot"><svg id="chartSvg" viewBox="0 0 720 300" preserveAspectRatio="none" role="img"></svg></div>
+          <div class="axis-caption">點位</div>
+          <div class="x-axis" id="xAxis"></div>
+        </div>
       </div>
     </article>
-    <aside class="quote panel">
-      <div class="kicker">Today’s Note</div>
-      <h1>今天先看風險，<br>再看機會。</h1>
-      <p class="quote-text">「投資最重要的不是預測，而是面對變化時仍有紀律。」</p>
-      <p class="quote-source">— 今日盤勢語錄</p>
-      <div class="observation">今日指數走弱，外資現貨賣超且期貨淨空單偏高，短線氣氛保守。先觀察權值股止穩與法人賣壓是否收斂。</div>
+    <aside class="note panel">
+      <div>
+        <div class="kicker">Today’s Note</div>
+        <h1>先確認風險，<br>再尋找機會。</h1>
+        <p class="quote-text">「市場短線會反應情緒，長線會回到紀律。」</p>
+        <p class="quote-source">— 今日盤勢語錄</p>
+      </div>
+      <div class="observation" id="todayObservation">今日指數走弱，外資現貨賣超且期貨淨空單偏高，短線氣氛保守。先觀察權值股止穩與法人賣壓是否收斂。</div>
     </aside>
   </section>
 
-  <div class="section-title"><h2>三大法人買賣超</h2><p>單位：億元｜台股慣例：淨買紅色、淨賣綠色</p></div>
+  <div class="section-title"><h2>三大法人買賣超</h2><p>單位：億元</p></div>
   <section class="cards">
-    <article class="card"><h3>外資</h3><div class="num down">-777.8<span class="unit">億</span></div><div class="sub">今日主要賣壓來源，偏空看待。</div></article>
-    <article class="card"><h3>投信</h3><div class="num up">+75.0<span class="unit">億</span></div><div class="sub">投信延續買盤，支撐中小型族群。</div></article>
-    <article class="card"><h3>自營商</h3><div class="num down">-32.6<span class="unit">億</span></div><div class="sub">自營商同步偏賣，留意短線波動。</div></article>
-    <article class="card"><h3>合計</h3><div class="num down">-735.4<span class="unit">億</span></div><div class="sub">三大法人合計賣超，市場偏保守。</div></article>
+    <article class="card"><h3>外資</h3><div class="num down" id="foreignNet">-777.8<span class="unit">億</span></div><div class="sub">今日主要賣壓來源。</div></article>
+    <article class="card"><h3>投信</h3><div class="num up" id="trustNet">+75.0<span class="unit">億</span></div><div class="sub">投信維持買盤。</div></article>
+    <article class="card"><h3>自營商</h3><div class="num down" id="dealerNet">-32.6<span class="unit">億</span></div><div class="sub">自營商同步偏賣。</div></article>
+    <article class="card"><h3>合計</h3><div class="num down" id="totalNet">-735.4<span class="unit">億</span></div><div class="sub">三大法人合計賣超。</div></article>
   </section>
 
-  <div class="section-title"><h2>期貨淨部位</h2><p>外資台指期｜口數</p></div>
+  <div class="section-title"><h2>期貨淨部位</h2><p>外資台指期｜單位：口</p></div>
   <section class="futures">
-    <article class="card"><h3>多方部位</h3><div class="num up">6,178<span class="unit">口</span></div><div class="sub">多單水位偏低。</div></article>
-    <article class="card"><h3>空方部位</h3><div class="num down">87,230<span class="unit">口</span></div><div class="sub">空方部位明顯較高。</div></article>
-    <article class="card"><h3>淨部位</h3><div class="num down">-81,052<span class="unit">口</span></div><div class="sub">較昨日再增加空單，短線避險情緒升溫。</div></article>
+    <article class="card"><h3>多方部位</h3><div class="num up" id="futureLong">6,178<span class="unit">口</span></div><div class="sub">多單水位偏低。</div></article>
+    <article class="card"><h3>空方部位</h3><div class="num down" id="futureShort">87,230<span class="unit">口</span></div><div class="sub">空方部位明顯較高。</div></article>
+    <article class="card"><h3>淨部位</h3><div class="num down" id="futureNet">-81,052<span class="unit">口</span></div><div class="delta down" id="futureDiff">較昨日：空單增加 6,482 口</div><div class="sub">短線避險情緒升溫。</div></article>
   </section>
-
-  <section class="searchbox">
-    <div>
-      <h2>下一步，查 ETF 持股變化</h2>
-      <p>輸入 ETF 代號或股票代號，看最近被哪些 ETF 加碼、減碼。</p>
-      <div class="mini"><span>00981A</span><span>0050</span><span>00878</span><span>2330</span></div>
-    </div>
-    <div><div class="search-input">搜尋 ETF / 股票代號</div><a class="cta" href="pages/00981A.html">查看 00981A →</a></div>
-  </section>
+  <div class="source-line">資料日：2026/07/03｜最新交易日資料顯示；無交易日時沿用上一交易日。</div>
 </main>
+<script>
+const fallbackMarket = {
+  date:'2026/07/03',
+  previousClose:22848.74,
+  close:22547.50,
+  change:-301.24,
+  changePct:-1.32,
+  intraday:[
+    ['09:00',22910.2],['09:30',22878.6],['10:00',22812.5],['10:30',22692.1],['11:00',22605.8],
+    ['11:30',22562.4],['12:00',22492.6],['12:30',22438.9],['13:00',22596.3],['13:30',22547.5]
+  ],
+  institutional:{foreign:-777.8,trust:75.0,dealer:-32.6,total:-735.4},
+  futures:{long:6178,short:87230,net:-81052,netDiff:-6482}
+};
+const halfHourTicks=['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30'];
+const nf = new Intl.NumberFormat('zh-TW');
+const nf2 = new Intl.NumberFormat('zh-TW',{minimumFractionDigits:2,maximumFractionDigits:2});
+function signed(value, digit=1){const abs=Math.abs(value).toFixed(digit);return `${value>=0?'+':'-'}${abs}`}
+function setSignedNumber(id,value,unit,digit=1){const el=document.getElementById(id);const cls=value>=0?'up':'down';el.className=`num ${cls}`;el.innerHTML=`${signed(value,digit)}<span class="unit">${unit}</span>`}
+function renderMarket(data){
+  document.getElementById('tradeDate').textContent=data.date;
+  document.getElementById('closeValue').textContent=nf2.format(data.close);
+  const direction=data.change>=0?'up':'down';
+  document.getElementById('pointChange').className=direction;
+  document.getElementById('pointChange').textContent=`${data.change>=0?'▲':'▼'} ${signed(data.change,2)} 點`;
+  document.getElementById('pctChange').className=direction;
+  document.getElementById('pctChange').textContent=`${signed(data.changePct,2)}%`;
+  setSignedNumber('foreignNet',data.institutional.foreign,'億',1);
+  setSignedNumber('trustNet',data.institutional.trust,'億',1);
+  setSignedNumber('dealerNet',data.institutional.dealer,'億',1);
+  setSignedNumber('totalNet',data.institutional.total,'億',1);
+  document.getElementById('futureLong').innerHTML=`${nf.format(data.futures.long)}<span class="unit">口</span>`;
+  document.getElementById('futureShort').innerHTML=`${nf.format(data.futures.short)}<span class="unit">口</span>`;
+  document.getElementById('futureNet').innerHTML=`${nf.format(data.futures.net)}<span class="unit">口</span>`;
+  const diffText=data.futures.netDiff<0?`空單增加 ${nf.format(Math.abs(data.futures.netDiff))} 口`:`空單減少 ${nf.format(Math.abs(data.futures.netDiff))} 口`;
+  document.getElementById('futureDiff').textContent=`較昨日：${diffText}`;
+  renderChart(data);
+}
+function renderChart(data){
+  const yAxis=document.getElementById('yAxis');
+  const xAxis=document.getElementById('xAxis');
+  const svg=document.getElementById('chartSvg');
+  const max=data.previousClose+1500;
+  const min=data.previousClose-1500;
+  const width=720, height=300, padX=20, padY=18;
+  yAxis.innerHTML='';
+  xAxis.innerHTML='';
+  svg.innerHTML='';
+  for(let i=0;i<=6;i++){
+    const value=max-i*500;
+    const top=(i/6)*100;
+    const label=document.createElement('span');
+    label.className='y-tick';
+    label.style.top=`${top}%`;
+    label.textContent=nf.format(Math.round(value));
+    yAxis.appendChild(label);
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    const y=padY+(height-padY*2)*(i/6);
+    line.setAttribute('x1',0);line.setAttribute('x2',width);line.setAttribute('y1',y);line.setAttribute('y2',y);
+    line.setAttribute('stroke','rgba(117,88,66,.13)');line.setAttribute('stroke-width','1');
+    svg.appendChild(line);
+  }
+  halfHourTicks.forEach(t=>{const s=document.createElement('span');s.textContent=t;xAxis.appendChild(s)});
+  const points=data.intraday.map(([time,value],idx)=>{
+    const x=padX+(width-padX*2)*(idx/(data.intraday.length-1));
+    const y=padY+(height-padY*2)*((max-value)/(max-min));
+    return {x,y,time,value};
+  });
+  const d=points.map((p,i)=>`${i?'L':'M'}${p.x},${p.y}`).join(' ');
+  const area=`${d} L${points[points.length-1].x},${height-padY} L${points[0].x},${height-padY} Z`;
+  const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');
+  defs.innerHTML='<linearGradient id="pulseArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#19724a" stop-opacity=".20"/><stop offset="1" stop-color="#19724a" stop-opacity="0"/></linearGradient>';
+  svg.appendChild(defs);
+  const areaPath=document.createElementNS('http://www.w3.org/2000/svg','path');
+  areaPath.setAttribute('d',area);areaPath.setAttribute('fill','url(#pulseArea)');svg.appendChild(areaPath);
+  const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+  path.setAttribute('d',d);path.setAttribute('fill','none');path.setAttribute('stroke','#19724a');path.setAttribute('stroke-width','5');path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');svg.appendChild(path);
+  const flatY=padY+(height-padY*2)*((max-data.previousClose)/(max-min));
+  const flat=document.createElementNS('http://www.w3.org/2000/svg','line');
+  flat.setAttribute('x1',0);flat.setAttribute('x2',width);flat.setAttribute('y1',flatY);flat.setAttribute('y2',flatY);
+  flat.setAttribute('stroke','#c8a96a');flat.setAttribute('stroke-width','2');flat.setAttribute('stroke-dasharray','6 7');svg.appendChild(flat);
+}
+renderMarket(fallbackMarket);
+</script>
 </body>
 </html>
