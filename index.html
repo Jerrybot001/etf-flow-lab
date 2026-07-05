@@ -3,24 +3,93 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ETF Flow Lab｜今日總覽</title>
+<title>ETF Flow Lab｜今日台股市場溫度</title>
 <style>
-:root{--bg:#f7efe2;--paper:#fff9ee;--ink:#151915;--muted:#6d6a5e;--green:#153f31;--line:#e2d0ae;--red:#a9453b;--good:#19724a;--amber:#9b6a18;--shadow:0 24px 70px rgba(38,35,26,.12)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,sans-serif}.top{height:8px;background:linear-gradient(90deg,var(--green),#e7c47b,#d88333)}.nav{width:fit-content;max-width:min(760px,92vw);margin:18px max(4vw,calc((100vw - 1120px)/2)) 0 auto;background:rgba(255,249,238,.9);border:1px solid var(--line);box-shadow:0 12px 36px rgba(38,35,26,.08);border-radius:999px;padding:6px;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;position:sticky;top:10px;z-index:10;backdrop-filter:blur(10px)}.nav a{padding:7px 11px;border-radius:999px;text-decoration:none;color:var(--green);font-size:12.5px;font-weight:950;border:1px solid transparent;white-space:nowrap}.nav a.active,.nav a:hover{background:#fff8ec;border-color:var(--line)}.wrap{width:min(1120px,92vw);margin:0 auto 56px}.hero{width:min(1120px,92vw);margin:18px auto 24px;display:grid;grid-template-columns:1fr .86fr;gap:22px}.cover,.side,.card{background:var(--paper);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow)}.cover{padding:40px}.side{background:var(--green);color:#fff;padding:30px}.kicker{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:#c0772f}.side .kicker{color:#e7c47b}h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,7vw,82px);line-height:.92;letter-spacing:-.05em;margin:16px 0}h2{font-family:Georgia,"Times New Roman",serif;font-size:32px;margin:0 0 14px}h3{font-size:21px;margin:8px 0 10px}.lead{font-size:18px;line-height:1.8;color:var(--muted)}.white{color:rgba(255,255,255,.84);line-height:1.9}.grid{display:grid;gap:18px}.g3{grid-template-columns:repeat(3,1fr)}.card{padding:24px;min-height:250px}.pill,.warn,.ok,.amberpill{display:inline-flex;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:900;margin:4px 6px 4px 0}.warn{background:#fff0ea;border:1px solid rgba(169,69,59,.25);color:var(--red)}.ok{background:#edf5ef;color:var(--good)}.amberpill{background:#fff7e5;border:1px solid rgba(155,106,24,.24);color:var(--amber)}.big{font-size:34px;font-weight:950;margin:16px 0 6px}.futures-big{font-size:44px;font-weight:950;margin:24px 0 8px;letter-spacing:.02em}.futures-summary{color:var(--red);font-size:16px;line-height:1.75;margin:0 0 8px;font-weight:800}.futures-detail{color:var(--muted);font-size:16px;line-height:1.75;margin:0}.sub{color:var(--muted);line-height:1.75}.neg{color:var(--red);font-weight:950}.pos{color:var(--good);font-weight:950}.amber{color:var(--amber);font-weight:950}.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.date-text{color:var(--red);font-size:18px;font-weight:500;white-space:nowrap;letter-spacing:.04em}.small-lines{border-top:1px solid var(--line);margin-top:16px;padding-top:12px;display:grid;gap:7px;color:var(--muted);font-size:14px}.line{display:flex;justify-content:space-between;gap:12px}.btn{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:#fff8ec;color:var(--green);text-decoration:none;font-weight:950}@media(max-width:900px){.hero,.g3{grid-template-columns:1fr}.cover{padding:30px}.nav{width:min(92vw,740px);margin:14px auto 0;border-radius:24px;justify-content:center}.nav a{flex:1 1 auto;text-align:center}.card{min-height:auto}.date-text{font-size:16px}}
+:root{
+  --bg:#f7efe2;
+  --paper:#fffaf1;
+  --paper2:#fff4df;
+  --ink:#2c241d;
+  --muted:#756b60;
+  --coffee:#755842;
+  --coffee2:#9a7859;
+  --champagne:#c8a96a;
+  --line:#e4d2b4;
+  --red:#c9463b;
+  --green:#228058;
+  --soft-red:#fff0ec;
+  --soft-green:#eef7f1;
+  --shadow:0 22px 64px rgba(80,55,32,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(circle at top left,#fff8ec 0,#f7efe2 42%,#f3e5cf 100%);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.topbar{height:8px;background:linear-gradient(90deg,var(--coffee),var(--champagne),#e0b56e)}
+.nav{width:min(1120px,92vw);margin:18px auto 0;display:flex;justify-content:space-between;align-items:center;gap:18px}
+.brand{font-weight:950;letter-spacing:.02em;color:var(--coffee);font-size:18px}.brand span{color:var(--champagne)}
+.links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;background:rgba(255,250,241,.72);border:1px solid var(--line);border-radius:999px;padding:6px;backdrop-filter:blur(10px)}
+.links a{padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--coffee);font-size:13px;font-weight:900;border:1px solid transparent;white-space:nowrap}.links a.active,.links a:hover{background:#fff8ec;border-color:var(--line)}
+.wrap{width:min(1120px,92vw);margin:26px auto 64px}.hero{display:grid;grid-template-columns:1.35fr .75fr;gap:22px;margin-bottom:22px}.panel,.card,.searchbox{background:rgba(255,250,241,.92);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow)}
+.panel{padding:30px}.quote{padding:30px;background:linear-gradient(145deg,#fffaf1 0%,#fff1da 100%)}.kicker{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:var(--coffee2);margin-bottom:12px}.date{color:var(--muted);font-size:13px;font-weight:800}.hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px}.index-name{font-size:16px;color:var(--muted);font-weight:900}.index-value{font-family:Georgia,"Times New Roman",serif;font-size:clamp(50px,7vw,78px);line-height:.95;letter-spacing:-.05em;margin:4px 0 10px;color:var(--ink)}.up{color:var(--red)}.down{color:var(--green)}.flat{color:var(--muted)}.change{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-weight:950;font-size:22px}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:7px 11px;font-size:13px;font-weight:950;background:#fff4df;border:1px solid var(--line);color:var(--coffee)}.chart{height:235px;margin-top:24px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#fffaf1,#fff5e6);position:relative;overflow:hidden}.gridline{position:absolute;left:0;right:0;height:1px;background:rgba(117,88,66,.11)}.g1{top:25%}.g2{top:50%}.g3{top:75%}.chart svg{position:absolute;inset:18px 20px 26px 20px;width:calc(100% - 40px);height:calc(100% - 44px)}.chart-footer{position:absolute;left:20px;right:20px;bottom:8px;display:flex;justify-content:space-between;color:var(--muted);font-size:12px;font-weight:800}.quote h1{font-family:Georgia,"Times New Roman",serif;font-size:36px;line-height:1.08;letter-spacing:-.03em;margin:8px 0 18px;color:var(--coffee)}.quote-text{font-size:24px;line-height:1.55;font-weight:950;color:var(--ink);margin:8px 0}.quote-source{color:var(--muted);font-weight:800}.observation{margin-top:22px;padding:18px;border-radius:22px;background:rgba(255,255,255,.58);border:1px solid var(--line);line-height:1.75;color:var(--muted);font-weight:800}.section-title{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:26px 0 14px}.section-title h2{font-family:Georgia,"Times New Roman",serif;font-size:30px;margin:0;color:var(--coffee)}.section-title p{margin:0;color:var(--muted);font-size:13px;font-weight:800}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{padding:22px;min-height:158px}.card h3{margin:0 0 16px;font-size:15px;color:var(--muted)}.num{font-size:31px;font-weight:950;letter-spacing:-.02em}.unit{font-size:14px;margin-left:3px;color:var(--muted);font-weight:900}.sub{margin-top:12px;color:var(--muted);line-height:1.65;font-size:14px;font-weight:800}.futures{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.searchbox{margin-top:28px;padding:28px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;background:linear-gradient(135deg,#fffaf1,#fff1dc)}.searchbox h2{font-family:Georgia,"Times New Roman",serif;font-size:32px;margin:0 0 8px;color:var(--coffee)}.searchbox p{margin:0;color:var(--muted);font-weight:800;line-height:1.7}.search-input{min-width:310px;border:1px solid var(--line);border-radius:999px;background:#fffaf1;padding:14px 18px;color:var(--muted);font-weight:900;box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}.cta{display:inline-flex;margin-top:12px;text-decoration:none;color:#fff;background:linear-gradient(90deg,var(--coffee),var(--coffee2));border-radius:999px;padding:12px 16px;font-weight:950}.mini{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.mini span{border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:7px 10px;color:var(--coffee);font-size:13px;font-weight:900}@media(max-width:920px){.nav{align-items:flex-start;flex-direction:column}.links{border-radius:22px;justify-content:center}.links a{flex:1 1 auto;text-align:center}.hero,.cards,.futures,.searchbox{grid-template-columns:1fr}.search-input{min-width:0;width:100%}.panel,.quote{padding:24px}.chart{height:210px}}
 </style>
 </head>
 <body>
-<div class="top"></div>
-<nav class="nav" aria-label="ETF Flow Lab 分頁導覽"><a class="active" href="./">今日總覽</a><a href="pages/00981A.html">00981A</a><a href="pages/market-flow.html">法人 / 期貨</a><a href="pages/etf-engine.html">ETF 引擎</a><a href="pages/sources.html">資料來源</a></nav>
-<header class="hero">
-<section class="cover"><div class="kicker">ETF Flow Lab｜Daily Brief</div><h1>今日<br>總覽</h1><p class="lead">首頁只放當日三個重點：收盤後資金流向、外資期貨、三大法人。其他說明、來源狀態、歷史資料全部放到分頁。</p><span class="ok">首頁只放重點</span><span class="amberpill">金額用億元</span><span class="warn">不塞假資料</span></section>
-<aside class="side"><div class="kicker">Page Rule</div><h2>首頁乾淨，細節進分頁</h2><p class="white">首頁只看最新一筆；法人 / 期貨分頁累積每天 TWSE 與 TAIFEX 官方資料。</p></aside>
-</header>
+<div class="topbar"></div>
+<nav class="nav" aria-label="ETF Flow Lab 分頁導覽">
+  <div class="brand">ETF Flow <span>Lab</span></div>
+  <div class="links"><a class="active" href="./">今日總覽</a><a href="pages/00981A.html">00981A</a><a href="pages/market-flow.html">法人 / 期貨</a><a href="pages/etf-engine.html">ETF 引擎</a><a href="pages/sources.html">資料來源</a></div>
+</nav>
 <main class="wrap">
-<section class="grid g3">
-<article class="card"><div class="kicker">Capital Flow</div><h3>收盤後資金流向</h3><div class="big neg">資金淨流出 735.4 億</div><p class="sub">資料日：2026-07-03，三大法人合計淨賣超 735.4 億。</p><a class="btn" href="pages/market-flow.html">看市場與籌碼 →</a></article>
-<article class="card"><div class="card-head"><div class="kicker">FUTURES</div><div class="date-text">更新日：2026/07/03</div></div><h3>外資期貨</h3><div class="futures-big neg">-81,052 口</div><p class="futures-summary">多方 6,178 口，空方 87,230 口；淨空單 81,052 口</p><p class="futures-detail">資料日：2026-07-03，外資期貨淨空單；多方 6,178 口，空方 87,230 口。</p><a class="btn" href="pages/market-flow.html">看歷史資料 →</a></article>
-<article class="card"><div class="kicker">Institutional</div><h3>三大法人</h3><div class="big neg">外資 -777.8 億</div><p class="sub">投信 +75.0 億｜自營商 -32.6 億｜合計 -735.4 億。</p><div class="small-lines"><div class="line"><span>資料日</span><b>2026-07-03</b></div><div class="line"><span>單位</span><b>億元</b></div></div><a class="btn" href="pages/market-flow.html">看三大法人明細 →</a></article>
-</section>
+  <section class="hero">
+    <article class="panel">
+      <div class="hero-head">
+        <div><div class="kicker">Taiwan Market Pulse</div><div class="index-name">加權指數｜2026/07/03 收盤</div></div>
+        <div class="badge">市場氣氛：偏空觀察</div>
+      </div>
+      <div class="index-value">22,547.50</div>
+      <div class="change"><span class="down">▼ -301.24 點</span><span class="down">-1.32%</span></div>
+      <div class="chart" aria-label="加權指數今日走勢圖">
+        <div class="gridline g1"></div><div class="gridline g2"></div><div class="gridline g3"></div>
+        <svg viewBox="0 0 620 190" preserveAspectRatio="none" role="img">
+          <defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#228058" stop-opacity=".22"/><stop offset="1" stop-color="#228058" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0,45 C58,52 94,38 137,61 C182,83 222,78 268,96 C318,116 360,96 405,126 C455,158 514,145 620,166 L620,190 L0,190 Z" fill="url(#area)"/>
+          <path d="M0,45 C58,52 94,38 137,61 C182,83 222,78 268,96 C318,116 360,96 405,126 C455,158 514,145 620,166" fill="none" stroke="#228058" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div class="chart-footer"><span>09:00</span><span>11:00</span><span>13:30</span></div>
+      </div>
+    </article>
+    <aside class="quote panel">
+      <div class="kicker">Today’s Note</div>
+      <h1>今天先看風險，<br>再看機會。</h1>
+      <p class="quote-text">「投資最重要的不是預測，而是面對變化時仍有紀律。」</p>
+      <p class="quote-source">— 今日盤勢語錄</p>
+      <div class="observation">今日指數走弱，外資現貨賣超且期貨淨空單偏高，短線氣氛保守。先觀察權值股止穩與法人賣壓是否收斂。</div>
+    </aside>
+  </section>
+
+  <div class="section-title"><h2>三大法人買賣超</h2><p>單位：億元｜台股慣例：淨買紅色、淨賣綠色</p></div>
+  <section class="cards">
+    <article class="card"><h3>外資</h3><div class="num down">-777.8<span class="unit">億</span></div><div class="sub">今日主要賣壓來源，偏空看待。</div></article>
+    <article class="card"><h3>投信</h3><div class="num up">+75.0<span class="unit">億</span></div><div class="sub">投信延續買盤，支撐中小型族群。</div></article>
+    <article class="card"><h3>自營商</h3><div class="num down">-32.6<span class="unit">億</span></div><div class="sub">自營商同步偏賣，留意短線波動。</div></article>
+    <article class="card"><h3>合計</h3><div class="num down">-735.4<span class="unit">億</span></div><div class="sub">三大法人合計賣超，市場偏保守。</div></article>
+  </section>
+
+  <div class="section-title"><h2>期貨淨部位</h2><p>外資台指期｜口數</p></div>
+  <section class="futures">
+    <article class="card"><h3>多方部位</h3><div class="num up">6,178<span class="unit">口</span></div><div class="sub">多單水位偏低。</div></article>
+    <article class="card"><h3>空方部位</h3><div class="num down">87,230<span class="unit">口</span></div><div class="sub">空方部位明顯較高。</div></article>
+    <article class="card"><h3>淨部位</h3><div class="num down">-81,052<span class="unit">口</span></div><div class="sub">較昨日再增加空單，短線避險情緒升溫。</div></article>
+  </section>
+
+  <section class="searchbox">
+    <div>
+      <h2>下一步，查 ETF 持股變化</h2>
+      <p>輸入 ETF 代號或股票代號，看最近被哪些 ETF 加碼、減碼。</p>
+      <div class="mini"><span>00981A</span><span>0050</span><span>00878</span><span>2330</span></div>
+    </div>
+    <div><div class="search-input">搜尋 ETF / 股票代號</div><a class="cta" href="pages/00981A.html">查看 00981A →</a></div>
+  </section>
 </main>
 </body>
 </html>
