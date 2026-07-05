@@ -1,0 +1,13 @@
+{
+  "status": "pending",
+  "message": "等待官方資料更新程式產生最新交易日資料",
+  "updatedAt": null,
+  "tradeDate": null,
+  "index": null,
+  "institutional": null,
+  "futures": null,
+  "validation": {
+    "passed": false,
+    "checks": []
+  }
+}
