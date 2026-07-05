@@ -3,11 +3,25 @@ import fs from 'node:fs/promises';
 const nf = (value) => Number(String(value ?? '').replace(/[,，%＋+]/g, '').replace('−', '-').trim());
 const twDate = (date) => `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, '0')}${String(date.getDate()).padStart(2, '0')}`;
 const displayDate = (yyyymmdd) => `${yyyymmdd.slice(0, 4)}/${yyyymmdd.slice(4, 6)}/${yyyymmdd.slice(6, 8)}`;
+const dateToYmd = (s) => String(s).replaceAll('/', '');
 
 async function getJson(url) {
   const res = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0' } });
   if (!res.ok) throw new Error(`${res.status} ${url}`);
   return res.json();
+}
+
+async function getText(url, options = {}) {
+  const res = await fetch(url, {
+    ...options,
+    headers: {
+      'user-agent': 'Mozilla/5.0',
+      'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      ...(options.headers || {})
+    }
+  });
+  if (!res.ok) throw new Error(`${res.status} ${url}`);
+  return res.text();
 }
 
 function recentDates(days = 12) {
@@ -16,6 +30,17 @@ function recentDates(days = 12) {
   for (let i = 0; i < days; i++) {
     out.push(twDate(d));
     d.setDate(d.getDate() - 1);
+  }
+  return out;
+}
+
+function previousDisplayDates(dateText, days = 10) {
+  const [y, m, d] = dateText.split('/').map(Number);
+  const date = new Date(Date.UTC(y, m - 1, d));
+  const out = [];
+  for (let i = 0; i < days; i++) {
+    date.setUTCDate(date.getUTCDate() - 1);
+    out.push(`${date.getUTCFullYear()}/${String(date.getUTCMonth() + 1).padStart(2, '0')}/${String(date.getUTCDate()).padStart(2, '0')}`);
   }
   return out;
 }
@@ -67,6 +92,89 @@ async function fetchIntraday(yyyymmdd, previousClose, close) {
   return { points: ticks.map((t, i) => [t, previousClose + (close - previousClose) * i / (ticks.length - 1)]), sourceUrl: 'fallback-linear' };
 }
 
+function normalizeHtmlText(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, '\n')
+    .replace(/<style[\s\S]*?<\/style>/gi, '\n')
+    .replace(/<[^>]+>/g, '\n')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&minus;/g, '-')
+    .replace(/&#8722;/g, '-')
+    .replace(/&amp;/g, '&')
+    .replace(/\r/g, '\n')
+    .split('\n')
+    .map(s => s.trim())
+    .filter(Boolean);
+}
+
+function isNumToken(s) {
+  return /^[-−]?\d{1,3}(,\d{3})*(\.\d+)?$/.test(String(s)) || /^[-−]?\d+(\.\d+)?$/.test(String(s));
+}
+
+function parseTaifexFutures(html) {
+  const tokens = normalizeHtmlText(html);
+  const joined = tokens.join(' ');
+  const date = joined.match(/日期\s*(\d{4}\/\d{2}\/\d{2})/)?.[1];
+  const productIdx = tokens.findIndex(t => t === '臺股期貨');
+  if (productIdx < 0) throw new Error('taifex_tx_product_not_found');
+  const foreignIdx = tokens.findIndex((t, i) => i > productIdx && t.includes('外資'));
+  if (foreignIdx < 0) throw new Error('taifex_foreign_row_not_found');
+  const nums = [];
+  for (let i = foreignIdx + 1; i < tokens.length && nums.length < 12; i++) {
+    if (isNumToken(tokens[i])) nums.push(nf(tokens[i]));
+  }
+  if (nums.length < 12) throw new Error('taifex_foreign_row_incomplete');
+  const long = nums[6];
+  const short = nums[8];
+  const net = nums[10];
+  return { tradeDate: date, product: '臺股期貨', investor: '外資', long, short, net };
+}
+
+async function fetchTaifexForDate(dateText) {
+  const url = 'https://www.taifex.com.tw/cht/3/futContractsDate';
+  const attempts = [
+    { url, options: {} },
+    { url: `${url}?queryDate=${encodeURIComponent(dateText)}&commodityId=TX`, options: {} },
+    { url: `${url}?queryType=1&doQuery=1&queryDate=${encodeURIComponent(dateText)}&commodityId=TX`, options: {} },
+    { url, options: { method: 'POST', body: new URLSearchParams({ queryDate: dateText, commodityId: 'TX', doQuery: '1' }).toString() } },
+    { url, options: { method: 'POST', body: new URLSearchParams({ queryStartDate: dateText, queryEndDate: dateText, commodityId: 'TX', doQuery: '1' }).toString() } }
+  ];
+  for (const a of attempts) {
+    try {
+      const html = await getText(a.url, a.options);
+      const parsed = parseTaifexFutures(html);
+      if (!dateText || parsed.tradeDate === dateText) return { ...parsed, sourceUrl: a.url };
+    } catch {}
+  }
+  throw new Error(`taifex_not_found_${dateText || 'latest'}`);
+}
+
+async function fetchFutures() {
+  const latest = await fetchTaifexForDate(null);
+  let previous = null;
+  for (const d of previousDisplayDates(latest.tradeDate, 12)) {
+    try {
+      previous = await fetchTaifexForDate(d);
+      if (previous.tradeDate !== latest.tradeDate) break;
+    } catch {}
+  }
+  if (!previous) throw new Error('taifex_previous_not_found');
+  return {
+    status: 'ok',
+    tradeDate: latest.tradeDate,
+    product: latest.product,
+    investor: latest.investor,
+    long: latest.long,
+    short: latest.short,
+    net: latest.net,
+    previousTradeDate: previous.tradeDate,
+    previousNet: previous.net,
+    netDiff: latest.net - previous.net,
+    sourceUrl: latest.sourceUrl,
+    previousSourceUrl: previous.sourceUrl
+  };
+}
+
 function validate(data) {
   const checks = [];
   const push = (name, pass, detail = '') => checks.push({ name, pass, detail });
@@ -74,20 +182,24 @@ function validate(data) {
   push('index change reconciles previous close', Math.abs((data.index.close - data.index.previousClose) - data.index.change) < 0.05);
   push('institutional total reconciles details', Math.abs((data.institutional.foreign + data.institutional.trust + data.institutional.dealer) - data.institutional.total) < 0.2);
   push('intraday has points', data.index.intraday.length >= 2);
+  push('futures loaded', data.futures?.status === 'ok');
+  push('futures long minus short equals net', Math.abs((data.futures.long - data.futures.short) - data.futures.net) === 0);
+  push('futures net diff reconciles previous net', Math.abs((data.futures.net - data.futures.previousNet) - data.futures.netDiff) === 0);
   return { passed: checks.every(c => c.pass), checks };
 }
 
 const idx = await fetchIndex();
-const yyyymmdd = idx.tradeDate.replaceAll('/', '');
+const yyyymmdd = dateToYmd(idx.tradeDate);
 const institutional = await fetchInstitutional(yyyymmdd);
 const intraday = await fetchIntraday(yyyymmdd, idx.previousClose, idx.close);
+const futures = await fetchFutures();
 const data = {
   status: 'ok',
   updatedAt: new Date().toISOString(),
   tradeDate: idx.tradeDate,
   index: { ...idx, intraday: intraday.points, intradaySourceUrl: intraday.sourceUrl },
   institutional,
-  futures: { status: 'pending', message: 'TAIFEX 期貨資料解析待接，未完成前不顯示假數字' }
+  futures
 };
 data.validation = validate(data);
 if (!data.validation.passed) throw new Error(JSON.stringify(data.validation, null, 2));
