@@ -19,8 +19,8 @@ jobs:
           node-version: '20'
       - name: Fetch and validate market data
         run: node scripts/update-market-data.mjs
-      - name: Commit latest market data
+      - name: Commit latest market data and homepage
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Update latest market data
-          file_pattern: data/market-latest.json
+          file_pattern: data/market-latest.json index.html
