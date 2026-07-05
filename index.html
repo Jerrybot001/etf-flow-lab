@@ -5,168 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Taiwan Market Pulse｜今日台股市場溫度</title>
 <style>
-:root{
-  --bg:#f7efe2;
-  --paper:#fffaf1;
-  --paper2:#fff4df;
-  --ink:#2c241d;
-  --muted:#756b60;
-  --coffee:#755842;
-  --coffee2:#9a7859;
-  --champagne:#c8a96a;
-  --line:#e4d2b4;
-  --red:#c9463b;
-  --green:#19724a;
-  --shadow:0 22px 64px rgba(80,55,32,.10);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:radial-gradient(circle at top left,#fff8ec 0,#f7efe2 45%,#f3e5cf 100%);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.topbar{height:8px;background:linear-gradient(90deg,var(--coffee),var(--champagne),#e0b56e)}
-.nav{width:min(1160px,92vw);margin:18px auto 0;display:flex;justify-content:space-between;align-items:center;gap:18px}
-.brand{font-weight:950;letter-spacing:.01em;color:var(--coffee);font-size:23px}.brand span{color:var(--champagne)}
-.links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;background:rgba(255,250,241,.72);border:1px solid var(--line);border-radius:999px;padding:6px;backdrop-filter:blur(10px)}
-.links a{padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--coffee);font-size:13px;font-weight:900;border:1px solid transparent;white-space:nowrap}.links a.active,.links a:hover{background:#fff8ec;border-color:var(--line)}
-.wrap{width:min(1160px,92vw);margin:26px auto 64px}.hero{display:grid;grid-template-columns:1.42fr .58fr;gap:22px;margin-bottom:26px;align-items:stretch}.panel,.card{background:rgba(255,250,241,.92);border:1px solid var(--line);border-radius:30px;box-shadow:var(--shadow)}
-.panel{padding:28px}.kicker{font-size:12px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;color:var(--coffee2);margin-bottom:10px}.meta{color:var(--muted);font-size:13px;font-weight:800}.hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}.index-title{font-size:18px;color:var(--muted);font-weight:950}.index-value{font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,6vw,68px);line-height:.95;letter-spacing:-.05em;margin:6px 0 10px;color:var(--ink)}.up{color:var(--red)}.down{color:var(--green)}.change{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-weight:950;font-size:22px}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:7px 11px;font-size:13px;font-weight:950;background:#fff4df;border:1px solid var(--line);color:var(--coffee);white-space:nowrap}
-.chart-shell{margin-top:20px}.chart-grid{display:grid;grid-template-columns:76px 1fr;grid-template-rows:300px 38px;gap:0}.y-axis{grid-row:1;grid-column:1;position:relative;color:var(--muted);font-size:12px;font-weight:900}.y-tick{position:absolute;right:10px;transform:translateY(-50%)}.plot{grid-row:1;grid-column:2;border:1px solid var(--line);border-radius:24px;background:linear-gradient(180deg,#fffaf1,#fff5e6);position:relative;overflow:hidden}.plot .gridline{position:absolute;left:0;right:0;height:1px;background:rgba(117,88,66,.12)}.plot svg{position:absolute;inset:0;width:100%;height:100%}.x-axis{grid-row:2;grid-column:2;display:grid;grid-template-columns:repeat(10,1fr);align-items:center;color:var(--muted);font-size:12px;font-weight:900}.x-axis span{text-align:center}.axis-caption{grid-row:2;grid-column:1;color:var(--muted);font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:flex-end;padding-right:10px}.note{padding:28px;background:linear-gradient(145deg,#fffaf1 0%,#fff1da 100%);display:flex;flex-direction:column;justify-content:space-between}.note h1{font-family:Georgia,"Times New Roman",serif;font-size:28px;line-height:1.18;letter-spacing:-.03em;margin:8px 0 14px;color:var(--coffee)}.quote-text{font-size:18px;line-height:1.75;font-weight:900;color:var(--ink);margin:8px 0}.quote-source{color:var(--muted);font-size:13px;font-weight:800}.observation{margin-top:18px;padding:16px;border-radius:22px;background:rgba(255,255,255,.58);border:1px solid var(--line);line-height:1.72;color:var(--muted);font-weight:850;font-size:15px}.section-title{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:24px 0 14px}.section-title h2{font-family:Georgia,"Times New Roman",serif;font-size:30px;margin:0;color:var(--coffee)}.section-title p{margin:0;color:var(--muted);font-size:13px;font-weight:900}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.futures{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:22px;min-height:156px}.card h3{margin:0 0 16px;font-size:15px;color:var(--muted)}.num{font-size:31px;font-weight:950;letter-spacing:-.02em}.unit{font-size:14px;margin-left:3px;color:var(--muted);font-weight:900}.sub{margin-top:12px;color:var(--muted);line-height:1.65;font-size:14px;font-weight:800}.delta{margin-top:8px;font-size:14px;font-weight:950}.source-line{margin-top:22px;color:var(--muted);font-size:12px;font-weight:800;text-align:right}
-@media(max-width:980px){.nav{align-items:flex-start;flex-direction:column}.links{border-radius:22px;justify-content:center}.links a{flex:1 1 auto;text-align:center}.hero,.cards,.futures{grid-template-columns:1fr}.panel,.note{padding:24px}.chart-grid{grid-template-columns:70px 1fr;grid-template-rows:250px 38px}.x-axis{font-size:10px}.brand{font-size:21px}}
+:root{--bg:#f7efe2;--paper:#fffaf1;--ink:#2c241d;--muted:#756b60;--coffee:#755842;--gold:#c8a96a;--line:#e4d2b4;--red:#c9463b;--green:#19724a;--shadow:0 18px 48px rgba(80,55,32,.10)}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top left,#fff8ec 0,#f7efe2 45%,#f3e5cf 100%);color:var(--ink);font-family:"Microsoft JhengHei",system-ui,sans-serif}.topbar{height:7px;background:linear-gradient(90deg,var(--coffee),var(--gold),#e0b56e)}.nav{width:min(1160px,92vw);margin:16px auto 0;display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{font-weight:950;color:var(--coffee);font-size:23px}.brand span{color:var(--gold)}.links{display:flex;gap:6px;flex-wrap:wrap;background:rgba(255,250,241,.72);border:1px solid var(--line);border-radius:999px;padding:6px}.links a{padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--coffee);font-size:13px;font-weight:900}.links a.active,.links a:hover{background:#fff8ec;border:1px solid var(--line)}.wrap{width:min(1160px,92vw);margin:20px auto 50px}.hero{display:grid;grid-template-columns:1.45fr .55fr;gap:20px;margin-bottom:22px}.panel,.card{background:rgba(255,250,241,.93);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow)}.panel{padding:22px}.kicker{font-size:12px;font-weight:950;letter-spacing:.14em;text-transform:uppercase;color:#9a7859;margin-bottom:8px}.hero-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.index-title{font-size:16px;color:var(--muted);font-weight:950}.index-value{font-family:Georgia,"Times New Roman",serif;font-size:52px;line-height:.95;letter-spacing:-.04em;margin:6px 0 8px}.up{color:var(--red)}.down{color:var(--green)}.neutral{color:var(--muted)}.change{display:flex;gap:12px;flex-wrap:wrap;font-size:20px;font-weight:950}.badge{border-radius:999px;padding:7px 11px;background:#fff4df;border:1px solid var(--line);color:var(--coffee);font-size:13px;font-weight:950;white-space:nowrap}.chart-grid{margin-top:14px;display:grid;grid-template-columns:68px 1fr;grid-template-rows:205px 30px}.y-axis{position:relative;color:var(--muted);font-size:11px;font-weight:900}.y-tick{position:absolute;right:8px;transform:translateY(-50%)}.plot{border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,#fffaf1,#fff5e6);position:relative;overflow:hidden}.plot svg{position:absolute;inset:0;width:100%;height:100%}.x-axis{display:grid;grid-template-columns:repeat(10,1fr);align-items:center;color:var(--muted);font-size:11px;font-weight:900}.x-axis span{text-align:center}.axis-caption{grid-column:1;grid-row:2;color:var(--muted);font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:flex-end;padding-right:8px}.note{padding:22px;background:linear-gradient(145deg,#fffaf1,#fff1da);display:flex;flex-direction:column;justify-content:space-between}.note h1{font-family:Georgia,"Times New Roman",serif;font-size:24px;line-height:1.22;margin:4px 0 12px;color:var(--coffee)}.quote-text{font-size:16px;line-height:1.68;font-weight:900;margin:6px 0}.quote-source{color:var(--muted);font-size:12px;font-weight:800}.observation{margin-top:14px;padding:14px;border-radius:18px;background:rgba(255,255,255,.58);border:1px solid var(--line);line-height:1.65;color:var(--muted);font-weight:850;font-size:14px}.market-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}.block{padding:22px}.block-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:14px}.block-title{font-family:Georgia,"Times New Roman",serif;font-size:27px;color:var(--coffee);font-weight:950}.summary{font-size:21px;font-weight:950;white-space:nowrap}.subunit{color:var(--muted);font-size:13px;font-weight:900}.rows{display:grid;gap:12px}.data-row{display:grid;grid-template-columns:72px 1fr;align-items:baseline}.label{color:var(--muted);font-weight:900}.value{font-size:24px;font-weight:950}.small{font-size:13px;color:var(--muted);font-weight:800}.source-line{margin-top:16px;color:var(--muted);font-size:12px;font-weight:800;text-align:right}@media(max-width:980px){.nav{align-items:flex-start;flex-direction:column}.hero,.market-row{grid-template-columns:1fr}.links{border-radius:22px}.index-value{font-size:44px}.chart-grid{grid-template-columns:62px 1fr;grid-template-rows:185px 30px}.block-head{align-items:flex-start;flex-direction:column}.summary{white-space:normal}.brand{font-size:21px}}
 </style>
 </head>
 <body>
 <div class="topbar"></div>
-<nav class="nav" aria-label="市場分頁導覽">
-  <div class="brand">Taiwan Market <span>Pulse</span></div>
-  <div class="links"><a class="active" href="./">今日總覽</a><a href="pages/00981A.html">00981A</a><a href="pages/market-flow.html">法人 / 期貨</a><a href="pages/etf-engine.html">ETF 引擎</a><a href="pages/sources.html">資料來源</a></div>
-</nav>
+<nav class="nav"><div class="brand">Taiwan Market <span>Pulse</span></div><div class="links"><a class="active" href="./">今日總覽</a><a href="pages/00981A.html">00981A</a><a href="pages/market-flow.html">法人 / 期貨</a><a href="pages/etf-engine.html">ETF 引擎</a><a href="pages/sources.html">資料來源</a></div></nav>
 <main class="wrap">
-  <section class="hero">
-    <article class="panel">
-      <div class="hero-head">
-        <div><div class="kicker">Weighted Index</div><div class="index-title">加權指數｜<span id="tradeDate">2026/07/03</span> 收盤</div></div>
-        <div class="badge" id="marketMood">市場氣氛：偏空觀察</div>
-      </div>
-      <div class="index-value" id="closeValue">22,547.50</div>
-      <div class="change"><span class="down" id="pointChange">▼ -301.24 點</span><span class="down" id="pctChange">-1.32%</span></div>
-      <div class="chart-shell" aria-label="加權指數今日走勢圖">
-        <div class="chart-grid">
-          <div class="y-axis" id="yAxis"></div>
-          <div class="plot" id="plot"><svg id="chartSvg" viewBox="0 0 720 300" preserveAspectRatio="none" role="img"></svg></div>
-          <div class="axis-caption">點位</div>
-          <div class="x-axis" id="xAxis"></div>
-        </div>
-      </div>
-    </article>
-    <aside class="note panel">
-      <div>
-        <div class="kicker">Today’s Note</div>
-        <h1>先確認風險，<br>再尋找機會。</h1>
-        <p class="quote-text">「市場短線會反應情緒，長線會回到紀律。」</p>
-        <p class="quote-source">— 今日盤勢語錄</p>
-      </div>
-      <div class="observation" id="todayObservation">今日指數走弱，外資現貨賣超且期貨淨空單偏高，短線氣氛保守。先觀察權值股止穩與法人賣壓是否收斂。</div>
-    </aside>
-  </section>
-
-  <div class="section-title"><h2>三大法人買賣超</h2><p>單位：億元</p></div>
-  <section class="cards">
-    <article class="card"><h3>外資</h3><div class="num down" id="foreignNet">-777.8<span class="unit">億</span></div><div class="sub">今日主要賣壓來源。</div></article>
-    <article class="card"><h3>投信</h3><div class="num up" id="trustNet">+75.0<span class="unit">億</span></div><div class="sub">投信維持買盤。</div></article>
-    <article class="card"><h3>自營商</h3><div class="num down" id="dealerNet">-32.6<span class="unit">億</span></div><div class="sub">自營商同步偏賣。</div></article>
-    <article class="card"><h3>合計</h3><div class="num down" id="totalNet">-735.4<span class="unit">億</span></div><div class="sub">三大法人合計賣超。</div></article>
-  </section>
-
-  <div class="section-title"><h2>期貨淨部位</h2><p>外資台指期｜單位：口</p></div>
-  <section class="futures">
-    <article class="card"><h3>多方部位</h3><div class="num up" id="futureLong">6,178<span class="unit">口</span></div><div class="sub">多單水位偏低。</div></article>
-    <article class="card"><h3>空方部位</h3><div class="num down" id="futureShort">87,230<span class="unit">口</span></div><div class="sub">空方部位明顯較高。</div></article>
-    <article class="card"><h3>淨部位</h3><div class="num down" id="futureNet">-81,052<span class="unit">口</span></div><div class="delta down" id="futureDiff">較昨日：空單增加 6,482 口</div><div class="sub">短線避險情緒升溫。</div></article>
-  </section>
-  <div class="source-line">資料日：2026/07/03｜最新交易日資料顯示；無交易日時沿用上一交易日。</div>
+<section class="hero">
+<article class="panel"><div class="hero-head"><div><div class="kicker">Weighted Index</div><div class="index-title">加權指數｜資料日待更新</div></div><div class="badge">市場氣氛：待更新</div></div><div class="index-value neutral">--</div><div class="change"><span class="neutral">-- 點</span><span class="neutral">--%</span></div><div class="chart-grid"><div class="y-axis"><span class="y-tick" style="top:0%">+1500</span><span class="y-tick" style="top:16.7%">+1000</span><span class="y-tick" style="top:33.3%">+500</span><span class="y-tick" style="top:50%">平盤</span><span class="y-tick" style="top:66.7%">-500</span><span class="y-tick" style="top:83.3%">-1000</span><span class="y-tick" style="top:100%">-1500</span></div><div class="plot"><svg viewBox="0 0 720 205"><line x1="0" x2="720" y1="102" y2="102" stroke="#c8a96a" stroke-width="2" stroke-dasharray="6 7"/></svg></div><div class="axis-caption">點位</div><div class="x-axis"><span>09:00</span><span>09:30</span><span>10:00</span><span>10:30</span><span>11:00</span><span>11:30</span><span>12:00</span><span>12:30</span><span>13:00</span><span>13:30</span></div></div></article>
+<aside class="note panel"><div><div class="kicker">Today’s Note</div><h1>先確認風險，<br>再尋找機會。</h1><p class="quote-text">「市場短線會反應情緒，長線會回到紀律。」</p><p class="quote-source">— 今日盤勢語錄</p></div><div class="observation">待官方資料更新後，依照指數、法人與期貨部位產生今日觀察。</div></aside>
+</section>
+<section class="market-row">
+<article class="card block"><div class="block-head"><div class="block-title">三大法人買賣超</div><div class="subunit">單位：億元</div><div class="summary neutral">合計 -- 億</div></div><div class="rows"><div class="data-row"><div class="label">外資</div><div class="value neutral">-- 億</div></div><div class="data-row"><div class="label">投信</div><div class="value neutral">-- 億</div></div><div class="data-row"><div class="label">自營商</div><div class="value neutral">-- 億</div></div></div></article>
+<article class="card block"><div class="block-head"><div><div class="subunit">外資台指期｜單位：口</div><div class="block-title">期貨淨部位</div></div><div class="summary neutral">淨部位 -- 口（較昨日 -- 口）</div></div><div class="rows"><div class="data-row"><div class="label">多方</div><div class="value neutral">-- 口</div></div><div class="data-row"><div class="label">空方</div><div class="value neutral">-- 口</div></div></div></article>
+</section>
+<div class="source-line">資料源：TWSE / TAIFEX 官方資料；無交易日時沿用上一交易日。</div>
 </main>
-<script>
-const fallbackMarket = {
-  date:'2026/07/03',
-  previousClose:22848.74,
-  close:22547.50,
-  change:-301.24,
-  changePct:-1.32,
-  intraday:[
-    ['09:00',22910.2],['09:30',22878.6],['10:00',22812.5],['10:30',22692.1],['11:00',22605.8],
-    ['11:30',22562.4],['12:00',22492.6],['12:30',22438.9],['13:00',22596.3],['13:30',22547.5]
-  ],
-  institutional:{foreign:-777.8,trust:75.0,dealer:-32.6,total:-735.4},
-  futures:{long:6178,short:87230,net:-81052,netDiff:-6482}
-};
-const halfHourTicks=['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30'];
-const nf = new Intl.NumberFormat('zh-TW');
-const nf2 = new Intl.NumberFormat('zh-TW',{minimumFractionDigits:2,maximumFractionDigits:2});
-function signed(value, digit=1){const abs=Math.abs(value).toFixed(digit);return `${value>=0?'+':'-'}${abs}`}
-function setSignedNumber(id,value,unit,digit=1){const el=document.getElementById(id);const cls=value>=0?'up':'down';el.className=`num ${cls}`;el.innerHTML=`${signed(value,digit)}<span class="unit">${unit}</span>`}
-function renderMarket(data){
-  document.getElementById('tradeDate').textContent=data.date;
-  document.getElementById('closeValue').textContent=nf2.format(data.close);
-  const direction=data.change>=0?'up':'down';
-  document.getElementById('pointChange').className=direction;
-  document.getElementById('pointChange').textContent=`${data.change>=0?'▲':'▼'} ${signed(data.change,2)} 點`;
-  document.getElementById('pctChange').className=direction;
-  document.getElementById('pctChange').textContent=`${signed(data.changePct,2)}%`;
-  setSignedNumber('foreignNet',data.institutional.foreign,'億',1);
-  setSignedNumber('trustNet',data.institutional.trust,'億',1);
-  setSignedNumber('dealerNet',data.institutional.dealer,'億',1);
-  setSignedNumber('totalNet',data.institutional.total,'億',1);
-  document.getElementById('futureLong').innerHTML=`${nf.format(data.futures.long)}<span class="unit">口</span>`;
-  document.getElementById('futureShort').innerHTML=`${nf.format(data.futures.short)}<span class="unit">口</span>`;
-  document.getElementById('futureNet').innerHTML=`${nf.format(data.futures.net)}<span class="unit">口</span>`;
-  const diffText=data.futures.netDiff<0?`空單增加 ${nf.format(Math.abs(data.futures.netDiff))} 口`:`空單減少 ${nf.format(Math.abs(data.futures.netDiff))} 口`;
-  document.getElementById('futureDiff').textContent=`較昨日：${diffText}`;
-  renderChart(data);
-}
-function renderChart(data){
-  const yAxis=document.getElementById('yAxis');
-  const xAxis=document.getElementById('xAxis');
-  const svg=document.getElementById('chartSvg');
-  const max=data.previousClose+1500;
-  const min=data.previousClose-1500;
-  const width=720, height=300, padX=20, padY=18;
-  yAxis.innerHTML='';
-  xAxis.innerHTML='';
-  svg.innerHTML='';
-  for(let i=0;i<=6;i++){
-    const value=max-i*500;
-    const top=(i/6)*100;
-    const label=document.createElement('span');
-    label.className='y-tick';
-    label.style.top=`${top}%`;
-    label.textContent=nf.format(Math.round(value));
-    yAxis.appendChild(label);
-    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
-    const y=padY+(height-padY*2)*(i/6);
-    line.setAttribute('x1',0);line.setAttribute('x2',width);line.setAttribute('y1',y);line.setAttribute('y2',y);
-    line.setAttribute('stroke','rgba(117,88,66,.13)');line.setAttribute('stroke-width','1');
-    svg.appendChild(line);
-  }
-  halfHourTicks.forEach(t=>{const s=document.createElement('span');s.textContent=t;xAxis.appendChild(s)});
-  const points=data.intraday.map(([time,value],idx)=>{
-    const x=padX+(width-padX*2)*(idx/(data.intraday.length-1));
-    const y=padY+(height-padY*2)*((max-value)/(max-min));
-    return {x,y,time,value};
-  });
-  const d=points.map((p,i)=>`${i?'L':'M'}${p.x},${p.y}`).join(' ');
-  const area=`${d} L${points[points.length-1].x},${height-padY} L${points[0].x},${height-padY} Z`;
-  const defs=document.createElementNS('http://www.w3.org/2000/svg','defs');
-  defs.innerHTML='<linearGradient id="pulseArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#19724a" stop-opacity=".20"/><stop offset="1" stop-color="#19724a" stop-opacity="0"/></linearGradient>';
-  svg.appendChild(defs);
-  const areaPath=document.createElementNS('http://www.w3.org/2000/svg','path');
-  areaPath.setAttribute('d',area);areaPath.setAttribute('fill','url(#pulseArea)');svg.appendChild(areaPath);
-  const path=document.createElementNS('http://www.w3.org/2000/svg','path');
-  path.setAttribute('d',d);path.setAttribute('fill','none');path.setAttribute('stroke','#19724a');path.setAttribute('stroke-width','5');path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');svg.appendChild(path);
-  const flatY=padY+(height-padY*2)*((max-data.previousClose)/(max-min));
-  const flat=document.createElementNS('http://www.w3.org/2000/svg','line');
-  flat.setAttribute('x1',0);flat.setAttribute('x2',width);flat.setAttribute('y1',flatY);flat.setAttribute('y2',flatY);
-  flat.setAttribute('stroke','#c8a96a');flat.setAttribute('stroke-width','2');flat.setAttribute('stroke-dasharray','6 7');svg.appendChild(flat);
-}
-renderMarket(fallbackMarket);
-</script>
 </body>
 </html>
