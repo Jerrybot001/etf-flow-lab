@@ -1,49 +1,35 @@
 {
-  "status": "ok",
+  "status": "partial_ok",
   "updatedAt": "2026-07-05T00:00:00+08:00",
-  "tradeDate": "2026/07/03",
+  "tradeDate": "2026/02/11",
   "index": {
-    "close": 22547.5,
-    "change": -301.24,
-    "changePct": -1.32,
-    "previousClose": 22848.74,
-    "intraday": [
-      ["09:00", 22910.2],
-      ["09:30", 22878.6],
-      ["10:00", 22812.5],
-      ["10:30", 22692.1],
-      ["11:00", 22605.8],
-      ["11:30", 22562.4],
-      ["12:00", 22492.6],
-      ["12:30", 22438.9],
-      ["13:00", 22596.3],
-      ["13:30", 22547.5]
-    ]
+    "source": "Yahoo股市 ^TWII",
+    "sourceUrl": "https://tw.stock.yahoo.com/quote/%5ETWII",
+    "dataTime": "2026/02/11 13:31",
+    "close": 33605.71,
+    "change": 532.74,
+    "changePct": 1.61,
+    "open": 33086.15,
+    "high": 33707.83,
+    "low": 33071.67,
+    "previousClose": 33072.97,
+    "turnoverBillion": 6757.96,
+    "volume": 9549829
   },
   "institutional": {
-    "foreign": -777.82612615,
-    "trust": 75.02170019,
-    "dealer": -32.59588256,
-    "total": -735.40030852
+    "status": "pending",
+    "message": "三大法人資料需重新核對最新日期後才顯示"
   },
   "futures": {
-    "status": "ok",
-    "tradeDate": "2026/07/03",
-    "product": "臺股期貨",
-    "investor": "外資",
-    "long": 6178,
-    "short": 87230,
-    "net": -81052,
-    "previousNet": -74570,
-    "netDiff": -6482
+    "status": "pending",
+    "message": "外資台指期資料需重新核對最新日期後才顯示"
   },
   "validation": {
     "passed": true,
     "checks": [
+      {"name": "Yahoo TWII quote parsed", "pass": true},
       {"name": "index close - previous close equals change", "pass": true},
-      {"name": "institutional total equals foreign + trust + dealer", "pass": true},
-      {"name": "futures long - short equals net", "pass": true},
-      {"name": "futures net - previous net equals netDiff", "pass": true}
+      {"name": "data time displayed on homepage", "pass": true}
     ]
   }
 }
