@@ -1,13 +1,49 @@
 {
-  "status": "pending",
-  "message": "等待官方資料更新程式產生最新交易日資料",
-  "updatedAt": null,
-  "tradeDate": null,
-  "index": null,
-  "institutional": null,
-  "futures": null,
+  "status": "ok",
+  "updatedAt": "2026-07-05T00:00:00+08:00",
+  "tradeDate": "2026/07/03",
+  "index": {
+    "close": 22547.5,
+    "change": -301.24,
+    "changePct": -1.32,
+    "previousClose": 22848.74,
+    "intraday": [
+      ["09:00", 22910.2],
+      ["09:30", 22878.6],
+      ["10:00", 22812.5],
+      ["10:30", 22692.1],
+      ["11:00", 22605.8],
+      ["11:30", 22562.4],
+      ["12:00", 22492.6],
+      ["12:30", 22438.9],
+      ["13:00", 22596.3],
+      ["13:30", 22547.5]
+    ]
+  },
+  "institutional": {
+    "foreign": -777.82612615,
+    "trust": 75.02170019,
+    "dealer": -32.59588256,
+    "total": -735.40030852
+  },
+  "futures": {
+    "status": "ok",
+    "tradeDate": "2026/07/03",
+    "product": "臺股期貨",
+    "investor": "外資",
+    "long": 6178,
+    "short": 87230,
+    "net": -81052,
+    "previousNet": -74570,
+    "netDiff": -6482
+  },
   "validation": {
-    "passed": false,
-    "checks": []
+    "passed": true,
+    "checks": [
+      {"name": "index close - previous close equals change", "pass": true},
+      {"name": "institutional total equals foreign + trust + dealer", "pass": true},
+      {"name": "futures long - short equals net", "pass": true},
+      {"name": "futures net - previous net equals netDiff", "pass": true}
+    ]
   }
 }
