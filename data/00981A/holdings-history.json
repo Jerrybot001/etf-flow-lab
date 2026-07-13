@@ -6,7 +6,7 @@
   "historyStartDate": "2026-07-01",
   "sourceStatus": "awaiting_official_endpoint",
   "lastSnapshotDate": null,
-  "lastUpdatedAt": "2026-07-11T01:20:04.465954+08:00",
+  "lastUpdatedAt": "2026-07-14T01:35:58.333867+08:00",
   "dataRule": "每天只從統一投信官網取得當日每日持股；取得後將當日原始明細存成後台歷史快照，再用歷史快照計算日變化。不得用非官方網站、舊截圖或 Demo 資料假裝今日資料。",
   "summary": {
     "range": "2026-07-01 ~ 2026-07-03",
