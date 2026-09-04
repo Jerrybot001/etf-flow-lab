@@ -1,35 +1,110 @@
 {
-  "status": "partial_ok",
-  "updatedAt": "2026-07-05T00:00:00+08:00",
-  "tradeDate": "2026/02/11",
+  "status": "ok",
+  "updatedAt": "2026-09-04T12:56:35.537Z",
+  "tradeDate": "2026/09/04",
   "index": {
-    "source": "Yahoo股市 ^TWII",
-    "sourceUrl": "https://tw.stock.yahoo.com/quote/%5ETWII",
-    "dataTime": "2026/02/11 13:31",
-    "close": 33605.71,
-    "change": 532.74,
-    "changePct": 1.61,
-    "open": 33086.15,
-    "high": 33707.83,
-    "low": 33071.67,
-    "previousClose": 33072.97,
-    "turnoverBillion": 6757.96,
-    "volume": 9549829
+    "tradeDate": "2026/09/04",
+    "close": 46551.13,
+    "change": 693.47,
+    "changePct": 1.51,
+    "previousClose": 45857.659999999996,
+    "sourceUrl": "https://www.twse.com.tw/rwd/zh/afterTrading/MI_INDEX?date=20260904&type=IND&response=json",
+    "intraday": [
+      [
+        "09:00",
+        45857.659999999996
+      ],
+      [
+        "09:30",
+        45934.71222222222
+      ],
+      [
+        "10:00",
+        46011.76444444444
+      ],
+      [
+        "10:30",
+        46088.816666666666
+      ],
+      [
+        "11:00",
+        46165.86888888889
+      ],
+      [
+        "11:30",
+        46242.92111111111
+      ],
+      [
+        "12:00",
+        46319.97333333333
+      ],
+      [
+        "12:30",
+        46397.025555555556
+      ],
+      [
+        "13:00",
+        46474.07777777778
+      ],
+      [
+        "13:30",
+        46551.13
+      ]
+    ],
+    "intradaySourceUrl": "fallback-linear"
   },
   "institutional": {
-    "status": "pending",
-    "message": "三大法人資料需重新核對最新日期後才顯示"
+    "foreign": 0,
+    "trust": -9.10866463,
+    "dealer": 625.83015047,
+    "total": 616.72148584,
+    "sourceUrl": "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20260904&type=day&response=json"
   },
   "futures": {
-    "status": "pending",
-    "message": "外資台指期資料需重新核對最新日期後才顯示"
+    "status": "ok",
+    "tradeDate": "2026/09/04",
+    "product": "臺股期貨",
+    "investor": "外資",
+    "long": 8153,
+    "short": 90542,
+    "net": -82389,
+    "previousTradeDate": "2026/08/27",
+    "previousNet": -84836,
+    "netDiff": 2447,
+    "sourceUrl": "https://www.taifex.com.tw/cht/3/futContractsDate",
+    "previousSourceUrl": "https://www.taifex.com.tw/cht/3/futContractsDate?queryDate=2026%2F08%2F27&commodityId=TX"
   },
   "validation": {
     "passed": true,
     "checks": [
-      {"name": "Yahoo TWII quote parsed", "pass": true},
-      {"name": "index close - previous close equals change", "pass": true},
-      {"name": "data time displayed on homepage", "pass": true}
+      {
+        "name": "index numeric",
+        "pass": true
+      },
+      {
+        "name": "index reconciles",
+        "pass": true
+      },
+      {
+        "name": "institutional reconciles",
+        "pass": true
+      },
+      {
+        "name": "intraday exists",
+        "pass": true
+      },
+      {
+        "name": "futures exists",
+        "pass": true
+      },
+      {
+        "name": "futures reconciles",
+        "pass": true
+      },
+      {
+        "name": "futures diff reconciles",
+        "pass": true
+      }
     ]
   }
 }
