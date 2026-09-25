@@ -1,7 +1,7 @@
 {
-  "lastUpdatedAt": "2026-09-25T20:31:51.434248+08:00",
+  "lastUpdatedAt": "2026-09-26T01:27:34.167123+08:00",
   "displayStage": "market-flow official fetch",
-  "runDate": "2026-09-25",
+  "runDate": "2026-09-26",
   "rule": "首頁可顯示前一可用資料，但必須標示資料日；不可把前一日或舊資料當成今日值。",
   "institutional": {
     "date": "2026-09-24",
