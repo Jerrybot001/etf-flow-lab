@@ -1,40 +1,40 @@
 {
-  "lastUpdatedAt": "2026-10-31T02:08:05.160964+08:00",
+  "lastUpdatedAt": "2026-11-03T00:46:57.318664+08:00",
   "displayStage": "market-flow official fetch",
-  "runDate": "2026-10-31",
+  "runDate": "2026-11-03",
   "rule": "首頁可顯示前一可用資料，但必須標示資料日；不可把前一日或舊資料當成今日值。",
   "institutional": {
-    "date": "2026-10-30",
+    "date": "2026-11-02",
     "sourceName": "TWSE 三大法人買賣金額統計表",
-    "sourceUrl": "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261030&type=day&response=json",
-    "foreignInvestor": -112467249894,
-    "investmentTrust": 23618796307,
-    "dealer": -51369097916,
-    "total": -140217551503,
+    "sourceUrl": "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261102&type=day&response=json",
+    "foreignInvestor": -73520805132,
+    "investmentTrust": 33815831633,
+    "dealer": -15288142517,
+    "total": -54993116016,
     "rawRows": [
       [
         "自營商(自行買賣)",
-        "9,031,429,661",
-        "12,871,788,307",
-        "-3,840,358,646"
+        "10,246,992,093",
+        "9,780,569,355",
+        "466,422,738"
       ],
       [
         "自營商(避險)",
-        "32,728,302,266",
-        "80,257,041,536",
-        "-47,528,739,270"
+        "30,563,264,343",
+        "46,317,829,598",
+        "-15,754,565,255"
       ],
       [
         "投信",
-        "36,336,431,234",
-        "12,717,634,927",
-        "23,618,796,307"
+        "43,264,914,918",
+        "9,449,083,285",
+        "33,815,831,633"
       ],
       [
         "外資及陸資(不含外資自營商)",
-        "340,478,117,346",
-        "452,945,367,240",
-        "-112,467,249,894"
+        "340,663,542,437",
+        "414,184,347,569",
+        "-73,520,805,132"
       ],
       [
         "外資自營商",
@@ -44,45 +44,45 @@
       ],
       [
         "合計",
-        "418,574,280,507",
-        "558,791,832,010",
-        "-140,217,551,503"
+        "424,738,713,791",
+        "479,731,829,807",
+        "-54,993,116,016"
       ]
     ]
   },
   "futures": {
-    "date": "2026-10-30",
+    "date": "2026-11-02",
     "sourceName": "TAIFEX 三大法人期貨未平倉",
-    "sourceUrl": "https://www.taifex.com.tw/cht/3/futContractsDateDown?queryStartDate=2026%2F10%2F30&queryEndDate=2026%2F10%2F30",
+    "sourceUrl": "https://www.taifex.com.tw/cht/3/futContractsDateDown?queryStartDate=2026%2F11%2F02&queryEndDate=2026%2F11%2F02",
     "product": "臺股期貨",
-    "foreignLongOpenInterest": 6528,
-    "foreignShortOpenInterest": 98769,
-    "foreignNetOpenInterest": -92241,
+    "foreignLongOpenInterest": 8952,
+    "foreignShortOpenInterest": 98331,
+    "foreignNetOpenInterest": -89379,
     "rawRow": [
-      "2026/10/30",
+      "2026/11/02",
       "臺股期貨",
       "外資及陸資",
-      "61741",
-      "563174796",
-      "63521",
-      "578971872",
-      "-1780",
-      "-15797076",
-      "6528",
-      "59146319",
-      "98769",
-      "894942786",
-      "-92241",
-      "-835796467"
+      "57787",
+      "519492760",
+      "54986",
+      "494358727",
+      "2801",
+      "25134032",
+      "8952",
+      "80977983",
+      "98331",
+      "889533996",
+      "-89379",
+      "-808556013"
     ]
   },
   "summary": {
-    "institutionalLabel": "TWSE 三大法人 2026-10-30",
-    "futuresLabel": "TAIFEX 外資期貨 2026-10-30",
-    "foreignInvestorText": "-112,467,249,894",
-    "investmentTrustText": "23,618,796,307",
-    "dealerText": "-51,369,097,916",
-    "foreignFuturesNetText": "-92,241"
+    "institutionalLabel": "TWSE 三大法人 2026-11-02",
+    "futuresLabel": "TAIFEX 外資期貨 2026-11-02",
+    "foreignInvestorText": "-73,520,805,132",
+    "investmentTrustText": "33,815,831,633",
+    "dealerText": "-15,288,142,517",
+    "foreignFuturesNetText": "-89,379"
   },
   "history": [
     {
@@ -6543,6 +6543,87 @@
             "418,574,280,507",
             "558,791,832,010",
             "-140,217,551,503"
+          ]
+        ]
+      }
+    },
+    {
+      "type": "futures",
+      "date": "2026-11-02",
+      "data": {
+        "date": "2026-11-02",
+        "sourceName": "TAIFEX 三大法人期貨未平倉",
+        "sourceUrl": "https://www.taifex.com.tw/cht/3/futContractsDateDown?queryStartDate=2026%2F11%2F02&queryEndDate=2026%2F11%2F02",
+        "product": "臺股期貨",
+        "foreignLongOpenInterest": 8952,
+        "foreignShortOpenInterest": 98331,
+        "foreignNetOpenInterest": -89379,
+        "rawRow": [
+          "2026/11/02",
+          "臺股期貨",
+          "外資及陸資",
+          "57787",
+          "519492760",
+          "54986",
+          "494358727",
+          "2801",
+          "25134032",
+          "8952",
+          "80977983",
+          "98331",
+          "889533996",
+          "-89379",
+          "-808556013"
+        ]
+      }
+    },
+    {
+      "type": "institutional",
+      "date": "2026-11-02",
+      "data": {
+        "date": "2026-11-02",
+        "sourceName": "TWSE 三大法人買賣金額統計表",
+        "sourceUrl": "https://www.twse.com.tw/rwd/zh/fund/BFI82U?dayDate=20261102&type=day&response=json",
+        "foreignInvestor": -73520805132,
+        "investmentTrust": 33815831633,
+        "dealer": -15288142517,
+        "total": -54993116016,
+        "rawRows": [
+          [
+            "自營商(自行買賣)",
+            "10,246,992,093",
+            "9,780,569,355",
+            "466,422,738"
+          ],
+          [
+            "自營商(避險)",
+            "30,563,264,343",
+            "46,317,829,598",
+            "-15,754,565,255"
+          ],
+          [
+            "投信",
+            "43,264,914,918",
+            "9,449,083,285",
+            "33,815,831,633"
+          ],
+          [
+            "外資及陸資(不含外資自營商)",
+            "340,663,542,437",
+            "414,184,347,569",
+            "-73,520,805,132"
+          ],
+          [
+            "外資自營商",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "合計",
+            "424,738,713,791",
+            "479,731,829,807",
+            "-54,993,116,016"
           ]
         ]
       }
