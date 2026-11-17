@@ -1,5 +1,5 @@
 {
-  "lastUpdatedAt": "2026-11-18T00:39:03.394733+08:00",
+  "lastUpdatedAt": "2026-11-18T05:14:49.859124+08:00",
   "displayStage": "market-flow official fetch",
   "runDate": "2026-11-18",
   "rule": "首頁可顯示前一可用資料，但必須標示資料日；不可把前一日或舊資料當成今日值。",
@@ -51,38 +51,38 @@
     ]
   },
   "futures": {
-    "date": "2026-11-17",
+    "date": "2026-11-16",
     "sourceName": "TAIFEX 三大法人期貨未平倉",
-    "sourceUrl": "https://www.taifex.com.tw/cht/3/futContractsDateDown?queryStartDate=2026%2F11%2F17&queryEndDate=2026%2F11%2F17",
+    "sourceUrl": "https://www.taifex.com.tw/cht/3/futContractsDateDown?queryStartDate=2026%2F11%2F16&queryEndDate=2026%2F11%2F16",
     "product": "臺股期貨",
-    "foreignLongOpenInterest": 17052,
-    "foreignShortOpenInterest": 114948,
-    "foreignNetOpenInterest": -97896,
+    "foreignLongOpenInterest": 12030,
+    "foreignShortOpenInterest": 108817,
+    "foreignNetOpenInterest": -96787,
     "rawRow": [
-      "2026/11/17",
+      "2026/11/16",
       "臺股期貨",
       "外資及陸資",
-      "153931",
-      "1254636705",
-      "155075",
-      "1265332746",
-      "-1144",
-      "-10696040",
-      "17052",
-      "136579579",
-      "114948",
-      "921832319",
-      "-97896",
-      "-785252740"
+      "162613",
+      "1374924922",
+      "157435",
+      "1335157765",
+      "5178",
+      "39767157",
+      "12030",
+      "98165273",
+      "108817",
+      "888770550",
+      "-96787",
+      "-790605277"
     ]
   },
   "summary": {
     "institutionalLabel": "TWSE 三大法人 2026-11-17",
-    "futuresLabel": "TAIFEX 外資期貨 2026-11-17",
+    "futuresLabel": "TAIFEX 外資期貨 2026-11-16",
     "foreignInvestorText": "-38,093,637,437",
     "investmentTrustText": "-3,820,722,349",
     "dealerText": "-15,696,229,125",
-    "foreignFuturesNetText": "-97,896"
+    "foreignFuturesNetText": "-96,787"
   },
   "history": [
     {
